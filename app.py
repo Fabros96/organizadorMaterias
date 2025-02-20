@@ -153,9 +153,14 @@ class HorarioGUI:
 
         # Cargar y redimensionar el icono de GitHub
         github_icon_path = 'gh.ico'
-        github_icon = Image.open(github_icon_path)
-        github_icon = github_icon.resize((30, 30), Image.LANCZOS)
-        self.github_icon = ImageTk.PhotoImage(github_icon)
+        try:
+            github_icon = Image.open(github_icon_path)
+            github_icon = github_icon.resize((30, 30), Image.LANCZOS)
+            self.github_icon = ImageTk.PhotoImage(github_icon)
+            github_button_text = "Fabros96"
+        except Exception as e:
+            self.github_icon = None
+            github_button_text = "@Fabros96"
 
         # Crear el menú principal
         self.crear_menu_principal()
@@ -653,8 +658,11 @@ class HorarioGUI:
         self.btn_tema = tb.Button(botones_frame_otros, text="🌞", command=self.toggle_tema, style="Tema.TButton", bootstyle="primary")
         self.btn_tema.pack(side="left", padx=5, pady=5, expand=True, fill="x")
 
+        # Definir el texto del botón de GitHub
+        github_button_text = "Fabros96" if self.github_icon else "@Fabros96"
+
         # Botón para abrir el perfil de GitHub
-        self.btn_github = tb.Button(botones_frame_otros, text="Fabros96", image=self.github_icon, compound="left", command=abrir_github, style="Github.TButton", bootstyle="success-link")
+        self.btn_github = tb.Button(botones_frame_otros, text=github_button_text, image=self.github_icon, compound="left" if self.github_icon else "none", command=abrir_github, style="Github.TButton", bootstyle="success-link")
         self.btn_github.pack(side="left", padx=3, pady=3, expand=True, fill="x")
 
 # Código principal para iniciar la aplicación
