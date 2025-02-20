@@ -48,6 +48,7 @@ def cerrar_con_esc(event):
 # Función para abrir el perfil de GitHub en el navegador
 def abrir_github():
     webbrowser.open("https://github.com/Fabros96")
+    webbrowser.open("https://github.com/Fabros96/organizadorMaterias")
 
 # Función para exportar el gráfico a un archivo PNG
 def exportar_grafico():
@@ -637,7 +638,7 @@ class HorarioGUI:
             ("Importar Datos JSON", self.importar_json),
         ]:
             btn = tb.Button(botones_frame_json, text=texto, command=comando, bootstyle="primary")
-            btn.pack(side="left", padx=5, pady=5, fill="x")
+            btn.pack(side="right", padx=5, pady=5, expand=True, fill="x")
 
         # Crear un marco para la sección de otros botones
         frame_otros = tb.Frame(frame, relief="solid", borderwidth=1)
