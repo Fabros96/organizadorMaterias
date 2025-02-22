@@ -15,12 +15,13 @@ from tkinter import ttk, messagebox, filedialog
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from ttkbootstrap.constants import *
 from PIL import Image, ImageTk
-import tkinter as tk
-import matplotlib.pyplot as plt
-import numpy as np
-import ttkbootstrap as tb
-import matplotlib.pyplot as plt
+import matplotlib.patheffects as patheffects
 import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import ttkbootstrap as tb
+import tkinter as tk
+import numpy as np
 import json
 import darkdetect
 import matplotlib
@@ -37,6 +38,8 @@ colores_base = ["PiYG", "summer", "winter", "vanimo", "hsv", "cool", "inferno_r"
 # Índice para recorrer la lista de colores base
 indice_color = 0
 
+comisiones_visibles = []
+
 # Función para obtener el tema del sistema (oscuro o claro)
 def obtener_tema_sistema():
     return "darkly" if darkdetect.isDark() else "superhero"
@@ -50,18 +53,25 @@ def abrir_github():
     webbrowser.open("https://github.com/Fabros96")
     webbrowser.open("https://github.com/Fabros96/organizadorMaterias")
 
+def obtener_materias_visibles(comisiones_rects):
+    visibles = []
+    for (materia, comision), rects in comisiones_rects.items():
+        if any(bar.get_visible() for bar in rects):
+            visibles.append((materia, comision))
+    
+    return visibles
+
+
 # Función para exportar el gráfico a un archivo PNG
 def exportar_grafico():
     file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
     if file_path:
-        # Preguntar si se desean ver las superposiciones
-        respuesta = messagebox.askyesno("Superposiciones", "¿Desea incluir las superposiciones en el gráfico?")
         
         # Crear una nueva figura y eje para el gráfico
-        fig, ax = plt.subplots(figsize=(12, 6))
-        ax.set_xlim(12, 24)
-        ax.set_xticks(np.arange(12, 24, 0.25))
-        ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(12, 24, 0.25)], rotation=80)
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.set_xlim(8, 24)
+        ax.set_xticks(np.arange(8, 24, 0.25))
+        ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(8, 24, 0.25)], rotation=80)
         ax.set_ylim(-0.5, 6.5)
         ax.set_yticks(range(7))
         ax.set_yticklabels(["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"])
@@ -69,7 +79,7 @@ def exportar_grafico():
         ax.set_ylabel("Día")
         ax.set_title("Horarios de Clases")
 
-        for x in np.arange(12, 24, 0.25):
+        for x in np.arange(8, 24, 0.25):
             ax.axvline(x, color='#27282b', linestyle='--', linewidth=1, alpha=0.80)
 
         dias = {"Lunes": 0, "Martes": 1, "Miercoles": 2, "Jueves": 3, "Viernes": 4, "Sabado": 5, "Domingo": 6}
@@ -83,61 +93,142 @@ def exportar_grafico():
                     matplotlib.colormaps.get_cmap(base_color)(0.2 + 0.6 * i / 8) for i in range(8)
                 ]
 
+        # Crear el diccionario de rectángulos
         comisiones_rects = {}
+        barras_sin_superposicion = []  # Lista para las barras sin superposición
         for materia, comisiones in materias.items():
             for idx, (comision, horarios) in enumerate(comisiones.items()):
-                color = colores_materias[materia][idx % len(colores_materias[materia])]
-                comisiones_rects[(materia, comision)] = []
-                for dia, inicio, fin in horarios:
-                    dia_num = dias.get(dia, -1)
-                    if dia_num >= 0:
-                        rect = ax.barh(dia_num, fin - inicio, left=inicio, color=color, edgecolor="black")[0]
-                        comisiones_rects[(materia, comision)].append(rect)
+                if (materia, comision) in comisiones_visibles:
+                    color = colores_materias[materia][idx % len(colores_materias[materia])]
+                    comisiones_rects[(materia, comision)] = []
+                    for dia, inicio, fin in horarios:
+                        dia_num = dias.get(dia, -1)
+                        if dia_num >= 0:
+                            rect = ax.barh(dia_num, fin - inicio, left=inicio, color=color, edgecolor="black")[0]
+                            comisiones_rects[(materia, comision)].append(rect)
+                            
+                            # Agregar a las barras sin superposición inicialmente
+                            barras_sin_superposicion.append((rect, materia, comision, inicio, fin, dia_num))
 
-        # Añadir leyenda
+        # Añadir superposiciones rojas
+        solapamientos = []
+        for (materia, comision), rects in comisiones_rects.items():
+            for bar in rects:
+                x, width, y = bar.get_x(), bar.get_width(), bar.get_y()
+                solapamientos.append((bar, x, x + width, y, materia, comision))
+
+        for bar, x1, x2, y, materia, comision in solapamientos:
+            bar.set_color(colores_materias[materia][0])
+
+        # Detectar y manejar superposiciones
+        superposiciones_parciales = {}  # Diccionario para guardar las superposiciones parciales con sus referencias
+        superposiciones_totales = {}  # Diccionario para guardar las superposiciones totales con sus referencias
+        referencias = [f"*{chr(65 + i)}" for i in range(26)]  # Asegúrate de que haya al menos 26 referencias
+
+        for i, (bar1, x1_1, x2_1, y1, mat1, com1) in enumerate(solapamientos):
+            for j, (bar2, x1_2, x2_2, y2, mat2, com2) in enumerate(solapamientos):
+                if i < j and y1 == y2 and x1_1 < x2_2 and x2_1 > x1_2:
+                    solapado_inicio = max(x1_1, x1_2)
+                    solapado_fin = min(x2_1, x2_2)
+                    ancho = solapado_fin - solapado_inicio
+
+                    if ancho > 0:
+                        # Marcar las barras como sin texto si hay superposición
+                        bar1.no_text = True
+                        bar2.no_text = True
+
+                        if x1_1 == x1_2 and x2_1 == x2_2:
+                            # Superposición total: mostrar una referencia y cubrir completamente el rectángulo original
+                            referencia = referencias.pop(0)
+                            superposiciones_totales[referencia] = f"{mat1}-{com1} y {mat2}-{com2}"
+                            
+                            # Marcar las barras como sin texto
+                            bar1.no_text = True
+                            bar2.no_text = True
+                            
+                            # Agregar un rectángulo rojo que cubra completamente el original
+                            rect = mpatches.Rectangle((x1_1, y1), x2_1 - x1_1, 0.8,
+                                                      facecolor='red', hatch='//', edgecolor='black', zorder=5)
+                            ax.add_patch(rect)
+                            
+                            # Agregar texto con la referencia
+                            text = ax.text((x1_1 + x2_1) / 2, y1 + 0.4, referencia,
+                                           ha='center', va='center', fontsize=14, color='white',
+                                           fontname='Arial', zorder=6)
+                            text.set_path_effects([patheffects.withStroke(linewidth=3, foreground='black')])
+
+                        else:
+                            # Superposición parcial: mostrar solo la referencia
+                            referencia = referencias.pop(0)
+                            superposiciones_parciales[referencia] = f"{mat1}-{com1} y {mat2}-{com2}"
+                            rect = mpatches.Rectangle((solapado_inicio, y1 - 0.4), ancho, 0.8,
+                                                      facecolor='red', hatch='//', edgecolor='black', zorder=5)
+                            ax.add_patch(rect)
+                            text = ax.text(solapado_inicio + ancho / 2, y1, referencia,
+                                           ha='center', va='center', fontsize=14, color='white',
+                                           fontname='Arial', zorder=6)
+                            text.set_path_effects([patheffects.withStroke(linewidth=3, foreground='black')])
+
+        # Escribir el texto solo en las barras sin superposición
+        for rect, materia, comision, inicio, fin, dia_num in barras_sin_superposicion:
+            # Solo agregar texto si la barra no tiene superposición
+            if not hasattr(rect, 'no_text') or not rect.no_text:
+                # Añadir texto de la comisión dentro del rectángulo
+                text = ax.text(
+                    inicio + (fin - inicio) / 2, dia_num, f"{materia}-{comision}", ha='center', va='center',
+                    fontsize=14, color='white', fontname='Arial', zorder=6
+                )
+                text.set_path_effects([patheffects.withStroke(linewidth=3, foreground='black')])
+
+        # Crear leyenda a la derecha para superposiciones parciales y totales
+        leyenda_x = 24.5  # Posición x para la leyenda
+        leyenda_y = 3.5   # Posición y para la leyenda
+
+        # Margen superior
+        leyenda_y += 0.5
+
+        # Título de la leyenda para superposiciones parciales
+        ax.text(leyenda_x, leyenda_y, "Superposiciones Parciales", ha='left', va='center',
+                fontsize=14, color='black', fontname='Arial', fontweight='bold')
+
+        # Margen inferior
+        leyenda_y -= 0.5
+
+        for i, (referencia, detalle) in enumerate(superposiciones_parciales.items()):
+            text = ax.text(leyenda_x, leyenda_y - i * 0.4, f"{referencia}: {detalle}", ha='left', va='center',
+                           fontsize=12, color='white', fontname='Arial')
+            text.set_path_effects([patheffects.withStroke(linewidth=3, foreground='black')])
+
+        # Margen superior antes del título de superposiciones totales
+        leyenda_y -= len(superposiciones_parciales) * 0.4 + 0.5
+
+        # Título de la leyenda para superposiciones totales
+        ax.text(leyenda_x, leyenda_y, "Superposiciones Totales", ha='left', va='center',
+                fontsize=14, color='black', fontname='Arial', fontweight='bold')
+
+        # Margen inferior
+        leyenda_y -= 0.5
+
+        for i, (referencia, detalle) in enumerate(superposiciones_totales.items()):
+            text = ax.text(leyenda_x, leyenda_y - i * 0.4, f"{referencia}: {detalle}", ha='left', va='center',
+                           fontsize=12, color='white', fontname='Arial')
+            text.set_path_effects([patheffects.withStroke(linewidth=3, foreground='black')])
+
+        # Crear leyenda para las materias y comisiones
         handles = []
         for materia, color in colores_materias.items():
             patch = mpatches.Patch(color=color[0], label=materia)
             handles.append(patch)
-        
-        if respuesta:
-            # Añadir superposiciones rojas
-            solapamientos = []
-            for (materia, comision), rects in comisiones_rects.items():
-                for bar in rects:
-                    if bar.get_visible():
-                        x, width, y = bar.get_x(), bar.get_width(), bar.get_y()
-                        solapamientos.append((bar, x, x + width, y, materia))
 
-            for bar, x1, x2, y, materia in solapamientos:
-                bar.set_color(colores_materias[materia][0])
+        ax.legend(handles=handles, loc='upper left', bbox_to_anchor=(1, 1))
 
-            for i, (bar1, x1_1, x2_1, y1, mat1) in enumerate(solapamientos):
-                for j, (bar2, x1_2, x2_2, y2, mat2) in enumerate(solapamientos):
-                    if i < j and y1 == y2 and x1_1 < x2_2 and x2_1 > x1_2:
-                        solapado_inicio = max(x1_1, x1_2)
-                        solapado_fin = min(x2_1, x2_2)
-                        ancho = solapado_fin - solapado_inicio
-                        if ancho > 0:
-                            rect = mpatches.Rectangle((solapado_inicio, y1 - 0.4), ancho, 0.8,
-                                                      facecolor='red', hatch='//', edgecolor='black', zorder=5)
-                            ax.add_patch(rect)
-            
-            # Añadir superposición a la leyenda
-            superposicion_patch = mpatches.Patch(facecolor='red', hatch='//', edgecolor='black', label='Superposición de horarios')
-            handles.append(superposicion_patch)
-        
-        # Colocar la leyenda fuera del gráfico
-        ax.legend(handles=handles, loc='center left', bbox_to_anchor=(1, 0.5))
+    # Guardar la figura como un archivo PNG
+    fig.savefig(file_path, bbox_inches='tight')
+    plt.close(fig)
+    messagebox.showinfo("Éxito", "Gráfico exportado correctamente")
 
-        # Ajustar el diseño para que la leyenda no se superponga con el gráfico
-        fig.tight_layout(rect=[0, 0, 0.85, 1])
 
-        # Guardar la figura como un archivo PNG
-        fig.savefig(file_path, bbox_inches='tight')
-        plt.close(fig)
-        messagebox.showinfo("Éxito", "Gráfico exportado correctamente")
-        
+
 # Clase principal de la interfaz gráfica
 class HorarioGUI:
     def __init__(self, root):
@@ -269,7 +360,6 @@ class HorarioGUI:
                 messagebox.showinfo("Éxito", "Comisión eliminada")
                 top.lift()
                 top.focus_force()
-
         btn_eliminar_comision = tk.Button(frame, text="Eliminar Comisión", command=eliminar_comision).grid(row=2, columnspan=2)
 
         top.bind("<Return>", lambda e: agregar_comision())
@@ -315,8 +405,11 @@ class HorarioGUI:
         frame = tk.Frame(top)
         frame.pack()
         tk.Label(frame, text="Día:").grid(row=0, column=0)
-        tk.Label(frame, text="Desde (hora decimal, ej. 14.5 para 14:30):").grid(row=1, column=0)
+        tk.Label(frame, text="Desde:").grid(row=1, column=0)
         tk.Label(frame, text="Hasta:").grid(row=2, column=0)
+        
+        tk.Label(frame, text="Hora decimal, ej. 14.5 para 14:30").grid(row=4, column=0)
+        tk.Label(frame, text=" 14.75 para 14:45 y 14.25 para 14:15").grid(row=5, column=0)
 
         entry_dia = ttk.Combobox(frame, values=["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"])
         entry_dia.grid(row=0, column=1)
@@ -408,14 +501,27 @@ class HorarioGUI:
         top.title("Gráfico de Horarios")
         top.bind("<Escape>", cerrar_con_esc)
 
+        # Ajustar la posición y el tamaño de la ventana
+        top.geometry("+100+0")  # Ajusta la posición (x, y) en la pantalla
+        top.geometry("1200x700")  # Ajusta el tamaño (ancho x alto) de la ventana
+
         top.rowconfigure(0, weight=1)
         top.columnconfigure(0, weight=3)
         top.columnconfigure(1, weight=1)
 
+        # Encontrar el horario de inicio más temprano
+        horarios = [
+            inicio
+            for comisiones in materias.values()
+            for horarios in comisiones.values()
+            for _, inicio, _ in horarios
+        ]
+        earliest_start = min(horarios) if horarios else 8
+
         fig, ax = plt.subplots(figsize=(10, 6))
-        ax.set_xlim(12, 24)
-        ax.set_xticks(np.arange(12, 24, 0.25))
-        ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(12, 24, 0.25)], rotation=80)
+        ax.set_xlim(earliest_start, 24)
+        ax.set_xticks(np.arange(earliest_start, 24, 0.25))
+        ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(earliest_start, 24, 0.25)], rotation=80)
         ax.set_ylim(-0.5, 6.5)
         ax.set_yticks(range(7))
         ax.set_yticklabels(["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"])
@@ -423,11 +529,10 @@ class HorarioGUI:
         ax.set_ylabel("Día")
         ax.set_title("Horarios de Clases")
 
-        for x in np.arange(12, 24, 0.25):
+        for x in np.arange(earliest_start, 24, 0.25):
             ax.axvline(x, color='#27282b', linestyle='--', linewidth=1, alpha=0.80)
 
         dias = {"Lunes": 0, "Martes": 1, "Miercoles": 2, "Jueves": 3, "Viernes": 4, "Sabado": 5, "Domingo": 6}
-        ocupacion = {}
         comisiones_rects = {}
         solapamiento_patches = []
 
@@ -464,13 +569,15 @@ class HorarioGUI:
             for i, (bar1, x1_1, x2_1, y1, mat1) in enumerate(solapamientos):
                 for j, (bar2, x1_2, x2_2, y2, mat2) in enumerate(solapamientos):
                     if i < j and y1 == y2 and x1_1 < x2_2 and x2_1 > x1_2:
-                        solapado_inicio = max(x1_1, x1_2)
-                        solapado_fin = min(x2_1, x2_2)
-                        ancho = solapado_fin - solapado_inicio
-                        if ancho > 0:
-                            rect = mpatches.Rectangle((solapado_inicio, y1 - 0.4), ancho, 0.8,
-                                                    facecolor='red', hatch='//', edgecolor='black', zorder=5)
-                            ax.add_patch(rect)
+                        if bar1.get_visible() and bar2.get_visible():
+                            solapado_inicio = max(x1_1, x1_2)
+                            solapado_fin = min(x2_1, x2_2)
+                            ancho = solapado_fin - solapado_inicio
+                            if ancho > 0:
+                                rect = mpatches.Rectangle((solapado_inicio, y1 - 0.4), ancho, 0.8,
+                                                        facecolor='red', hatch='//', edgecolor='black', zorder=5)
+                                ax.add_patch(rect)
+                                solapamiento_patches.append(rect)
             canvas.draw()
 
         for materia, comisiones in materias.items():
@@ -486,16 +593,46 @@ class HorarioGUI:
         actualizar_solapamientos()
 
         # Función para alternar la visibilidad de una comisión
+        # Arreglo global para almacenar las comisiones visibles
+
+        # Arreglo global para almacenar las comisiones visibles
+
+
+        # Inicializar todas las materias y sus comisiones como visibles
+        def inicializar_comisiones_visibles():
+            global comisiones_visibles
+            comisiones_visibles = []
+            
+            # Iterar sobre todas las materias y comisiones
+            for materia, comisiones in materias.items():
+                for comision in comisiones.keys():
+                    comisiones_visibles.append((materia, comision))
+
         def toggle_comision(materia, comision, var):
             # Obtener el estado de visibilidad de la comisión
             visible = var.get()
+
             # Alternar la visibilidad de las barras correspondientes a la comisión
             for bar in comisiones_rects.get((materia, comision), []):
-                bar.set_visible(visible)
-            # Actualizar los solapamientos de horarios
+                bar.set_visible(visible)  # Alterna visibilidad
+
+            # Actualizar el arreglo de comisiones visibles
+            if visible:
+                # Si es visible, agregar a la lista si no está ya
+                if (materia, comision) not in comisiones_visibles:
+                    comisiones_visibles.append((materia, comision))
+            else:
+                # Si no es visible, eliminar de la lista si está presente
+                if (materia, comision) in comisiones_visibles:
+                    comisiones_visibles.remove((materia, comision))
+
+            # Asegurarse de que se actualicen correctamente los solapamientos si es necesario
             actualizar_solapamientos()
-            # Redibujar el canvas
+
+            # Redibujar el canvas solo si se está actualizando el estado de las barras
             canvas.draw()
+
+
 
         # Crear un marco para la leyenda de materias y comisiones
         legend_frame = tk.Frame(top, bg="white", padx=5, pady=5)
@@ -550,6 +687,7 @@ class HorarioGUI:
         superposicion_patch = mpatches.Patch(facecolor='red', hatch='//', edgecolor='black', label='Superposición de horarios')
         ax.legend(handles=[superposicion_patch], loc='upper right')
 
+        inicializar_comisiones_visibles()
         # Redibujar el canvas
         canvas.draw()
 
