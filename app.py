@@ -12,6 +12,7 @@
 #--------------------------------------------------------------------#
 
 from tkinter import ttk, messagebox, filedialog
+import darkdetect
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from ttkbootstrap.constants import *
 from PIL import Image, ImageTk
@@ -23,7 +24,6 @@ import ttkbootstrap as tb
 import tkinter as tk
 import numpy as np
 import json
-import darkdetect
 import matplotlib
 import webbrowser
 import datetime
@@ -227,14 +227,31 @@ def exportar_grafico():
     plt.close(fig)
     messagebox.showinfo("Éxito", "Gráfico exportado correctamente")
 
+def centrar_ventana(ventana):
+    ventana.update_idletasks()
 
+    # Obtener el tamaño de la pantalla
+    pantalla_width = ventana.winfo_screenwidth()
+    pantalla_height = ventana.winfo_screenheight()
+
+    # Obtener el tamaño de la ventana
+    ventana_width = ventana.winfo_width()
+    ventana_height = ventana.winfo_height()
+
+    # Calcular la posición de la ventana para centrarla
+    pos_x = (pantalla_width // 2) - (ventana_width // 2)
+    pos_y = (pantalla_height // 2) - (ventana_height // 2)
+
+    # Establecer la nueva posición de la ventana
+    ventana.geometry(f"{ventana_width}x{ventana_height}+{pos_x}+{pos_y}")
 
 # Clase principal de la interfaz gráfica
 class HorarioGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Gestión de Horarios")
-        root.minsize(375, 375)
+        root.minsize(400, 400)
+        centrar_ventana(root)
         self.tema_actual = obtener_tema_sistema()
         self.style = tb.Style(theme=self.tema_actual)
 
@@ -259,9 +276,19 @@ class HorarioGUI:
     # Método para crear el menú de ABM de materias
     def menu_abm_materia(self):
         top = tk.Toplevel(self.root)
-        top.title("ABM Materias")
+        top.title("AB Materias")
         top.bind("<Escape>", cerrar_con_esc)
         top.focus_force()
+        top.minsize(300, 275)
+        top.geometry("300x275")
+        top.maxsize(800, 600)
+
+        # Obtener la posición de la ventana principal (self.root)
+        pos_x = self.root.winfo_rootx()
+        pos_y = self.root.winfo_rooty()
+
+        # Establecer la posición de la ventana hija en la misma ubicación que la ventana principal
+        top.geometry(f"300x275+{pos_x}+{pos_y}")
 
         tk.Label(top, text="Materias Existentes:").pack()
         listbox = tk.Listbox(top)
@@ -273,7 +300,7 @@ class HorarioGUI:
         frame.pack()
         tk.Label(frame, text="Nombre Materia:").grid(row=0, column=0)
         entry_materia = tk.Entry(frame)
-        entry_materia.grid(row=0, column=1)
+        entry_materia.grid(row=0, column=1, pady=10)
 
         # Función para agregar una nueva materia
         def agregar_materia():
@@ -287,7 +314,7 @@ class HorarioGUI:
             top.lift()
             top.focus_force()
 
-        btn_agregar_materia = tk.Button(frame, text="Agregar Materia", command=agregar_materia).grid(row=1, columnspan=2)
+        
 
         # Función para eliminar una materia seleccionada
         def eliminar_materia():
@@ -299,7 +326,11 @@ class HorarioGUI:
                 messagebox.showinfo("Éxito", "Materia eliminada")
                 top.lift()
                 top.focus_force()
-        btn_eliminar_materia = tk.Button(frame, text="Eliminar Materia", command=eliminar_materia).grid(row=2, columnspan=2)
+
+        btn_frame_mat = tk.Frame(frame)
+        btn_frame_mat.grid(row=5, column=0, columnspan=2, pady=15)
+        tk.Button(btn_frame_mat, text="Agregar Materia", command=agregar_materia).pack(side=tk.LEFT, padx=5)
+        tk.Button(btn_frame_mat, text="Eliminar Materia", command=eliminar_materia).pack(side=tk.LEFT, padx=5)
 
         top.bind("<Return>", lambda e: agregar_materia())
         top.bind("<Delete>", lambda e: eliminar_materia())
@@ -307,9 +338,19 @@ class HorarioGUI:
     # Método para crear el menú de ABM de comisiones
     def menu_abm_comision(self):
         top = tk.Toplevel(self.root)
-        top.title("ABM Comisiones")
+        top.title("AB Comisiones")
         top.bind("<Escape>", cerrar_con_esc)
         top.focus_force()
+        top.minsize(310, 310)
+        top.geometry("310x30")
+        top.maxsize(800, 600)
+
+        # Obtener la posición de la ventana principal (self.root)
+        pos_x = self.root.winfo_rootx()
+        pos_y = self.root.winfo_rooty()
+
+        # Establecer la posición de la ventana hija en la misma ubicación que la ventana principal
+        top.geometry(f"300x275+{pos_x}+{pos_y}")
 
         tk.Label(top, text="Seleccione una Materia:").pack()
         combo_materia = ttk.Combobox(top, values=list(materias.keys()))
@@ -332,7 +373,7 @@ class HorarioGUI:
         frame.pack()
         tk.Label(frame, text="Nombre Comisión:").grid(row=0, column=0)
         entry_comision = tk.Entry(frame)
-        entry_comision.grid(row=0, column=1)
+        entry_comision.grid(row=0, column=1, pady=10)
 
         # Función para agregar una nueva comisión
         def agregar_comision():
@@ -347,8 +388,6 @@ class HorarioGUI:
             top.lift()
             top.focus_force()
 
-        btn_agregar_comision = tk.Button(frame, text="Agregar Comisión", command=agregar_comision).grid(row=1, columnspan=2)
-
         # Función para eliminar una comisión seleccionada
         def eliminar_comision():
             materia = combo_materia.get()
@@ -360,17 +399,30 @@ class HorarioGUI:
                 messagebox.showinfo("Éxito", "Comisión eliminada")
                 top.lift()
                 top.focus_force()
-        btn_eliminar_comision = tk.Button(frame, text="Eliminar Comisión", command=eliminar_comision).grid(row=2, columnspan=2)
+
+        btn_frame_com = tk.Frame(frame)
+        btn_frame_com.grid(row=5, column=0, columnspan=2, pady=15)
+        tk.Button(btn_frame_com, text="Agregar Comision", command=agregar_comision).pack(side=tk.LEFT, padx=5)
+        tk.Button(btn_frame_com, text="Eliminar Comision", command=eliminar_comision).pack(side=tk.LEFT, padx=5)
 
         top.bind("<Return>", lambda e: agregar_comision())
         top.bind("<Delete>", lambda e: eliminar_comision())
 
-    # Método para crear el menú de ABM de horarios
     def menu_abm_horarios(self):
         top = tk.Toplevel(self.root)
-        top.title("ABM Horarios")
+        top.title("AB Horarios")
         top.bind("<Escape>", cerrar_con_esc)
         top.focus_force()
+        top.minsize(400, 475)
+        top.geometry("400x475")
+        top.maxsize(800, 600)
+
+        # Obtener la posición de la ventana principal (self.root)
+        pos_x = self.root.winfo_rootx()
+        pos_y = self.root.winfo_rooty()
+
+        # Establecer la posición de la ventana hija en la misma ubicación que la ventana principal
+        top.geometry(f"300x275+{pos_x}+{pos_y}")
 
         tk.Label(top, text="Seleccione Materia:").pack()
         combo_materia = ttk.Combobox(top, values=list(materias.keys()))
@@ -380,12 +432,10 @@ class HorarioGUI:
         combo_comision = ttk.Combobox(top)
         combo_comision.pack()
 
-        # Función para actualizar la lista de comisiones
         def actualizar_comisiones():
             materia = combo_materia.get()
             combo_comision['values'] = list(materias.get(materia, {}).keys())
 
-        # Función para actualizar la lista de horarios
         def actualizar_horarios():
             materia = combo_materia.get()
             comision = combo_comision.get()
@@ -407,18 +457,14 @@ class HorarioGUI:
         tk.Label(frame, text="Día:").grid(row=0, column=0)
         tk.Label(frame, text="Desde:").grid(row=1, column=0)
         tk.Label(frame, text="Hasta:").grid(row=2, column=0)
-        
-        tk.Label(frame, text="Hora decimal, ej. 14.5 para 14:30").grid(row=4, column=0)
-        tk.Label(frame, text=" 14.75 para 14:45 y 14.25 para 14:15").grid(row=5, column=0)
 
         entry_dia = ttk.Combobox(frame, values=["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"])
-        entry_dia.grid(row=0, column=1)
+        entry_dia.grid(row=0, column=1, pady=5)
         entry_inicio = tk.Entry(frame)
-        entry_inicio.grid(row=1, column=1)
+        entry_inicio.grid(row=1, column=1, pady=5)
         entry_fin = tk.Entry(frame)
-        entry_fin.grid(row=2, column=1)
+        entry_fin.grid(row=2, column=1, pady=5)
 
-        # Función para agregar un nuevo horario
         def agregar_horario():
             materia = combo_materia.get()
             comision = combo_comision.get()
@@ -436,9 +482,6 @@ class HorarioGUI:
             top.lift()
             top.focus_force()
 
-        btn_agregar_horario = tk.Button(frame, text="Agregar Horario", command=agregar_horario).grid(row=1, columnspan=2)
-
-        # Función para eliminar un horario seleccionado
         def eliminar_horario():
             materia = combo_materia.get()
             comision = combo_comision.get()
@@ -454,10 +497,18 @@ class HorarioGUI:
             top.lift()
             top.focus_force()
 
-        btn_eliminar_horario = tk.Button(frame, text="Eliminar Horario", command=eliminar_horario).grid(row=2, columnspan=2)
+        btn_frame = tk.Frame(frame)
+        btn_frame.grid(row=5, column=0, columnspan=2, pady=15)
+        tk.Button(btn_frame, text="Agregar Horario", command=agregar_horario).pack(side=tk.LEFT, padx=5)
+        tk.Button(btn_frame, text="Eliminar Horario", command=eliminar_horario).pack(side=tk.LEFT, padx=5)
+
+        tk.Label(frame, text="Hora decimal, ej. 14.5 para 14:30").grid(row=6, column=0, columnspan=2)
+        tk.Label(frame, text="14.75 para 14:45 y 14.25 para 14:15").grid(row=7, column=0, columnspan=2)
 
         top.bind("<Return>", lambda e: agregar_horario())
         top.bind("<Delete>", lambda e: eliminar_horario())
+
+
 
     # Método para exportar los datos a un archivo JSON
     def exportar_json(self):
@@ -502,8 +553,7 @@ class HorarioGUI:
         top.bind("<Escape>", cerrar_con_esc)
 
         # Ajustar la posición y el tamaño de la ventana
-        top.geometry("+100+0")  # Ajusta la posición (x, y) en la pantalla
-        top.geometry("1200x700")  # Ajusta el tamaño (ancho x alto) de la ventana
+        #top.geometry("1200x700")  # Ajusta el tamaño (ancho x alto) de la ventana
 
         top.rowconfigure(0, weight=1)
         top.columnconfigure(0, weight=3)
@@ -752,16 +802,16 @@ class HorarioGUI:
         frame_abm = tb.Frame(frame, relief="solid", borderwidth=1)
         frame_abm.pack(fill="x", padx=5, pady=5)
 
-        tb.Label(frame_abm, text="ABM", font=("Arial", 10, "bold")).pack(side="top", anchor="w", padx=5)
+        tb.Label(frame_abm, text="AB", font=("Arial", 10, "bold")).pack(side="top", anchor="w", padx=5)
 
         botones_frame_abm = tb.Frame(frame_abm)
         botones_frame_abm.pack(fill="x")
 
         # Botones para ABM de Materia, Comisión y Horarios
         for texto, comando in [
-            ("ABM Materia", self.menu_abm_materia),
-            ("ABM Comisión", self.menu_abm_comision),
-            ("ABM Horarios", self.menu_abm_horarios),
+            ("AB Materia", self.menu_abm_materia),
+            ("AB Comisión", self.menu_abm_comision),
+            ("AB Horarios", self.menu_abm_horarios),
         ]:
             btn = tb.Button(botones_frame_abm, text=texto, command=comando, bootstyle="primary")
             btn.pack(side="left", padx=5, pady=5, expand=True, fill="x")
