@@ -7,6 +7,8 @@
 #Sin más que agregar sos libre de modificar el código a tu gusto y necesidad y si querés compartirlo también.
 
 #El código también esta comentado para su mayor entendimiento. Esta programado en Python y usa la librería Tkinter para la interfaz gráfica.
+
+#El ejecutable esta en la ruta 'organizadorMaterias\dist' y
 #--------------------------------------------------------------------#
 
 from tkinter import ttk, messagebox, filedialog
