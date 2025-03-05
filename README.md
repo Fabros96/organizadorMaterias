@@ -9,5 +9,5 @@
 
 #El código también esta comentado para su mayor entendimiento. Esta programado en Python y usa la librería Tkinter para la interfaz gráfica.
 
-#El ejecutable esta en la ruta 'organizadorMaterias\dist' y
+#El ejecutable esta en la ruta 'organizadorMaterias\dist'
 #--------------------------------------------------------------------#
