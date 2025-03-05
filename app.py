@@ -285,7 +285,7 @@ class HorarioGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Gestión de Horarios")
-        self.root.iconbitmap("logo.ico")
+        self.root.iconbitmap('logo.ico')
         root.minsize(400, 400)
         centrar_ventana(root)
         self.tema_actual = obtener_tema_sistema()
