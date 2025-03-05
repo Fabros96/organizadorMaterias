@@ -2,13 +2,11 @@
 #Hecho por Fabrizio Azeglio (@Fabros96) para organizar los horarios de cursado de la FRM-UTN. 
 #La idea es que sea una herramienta para que los estudiantes puedan organizar sus horarios de cursado
 #de manera más eficiente y les facilite antes de tiempo planificar sus horarios.
-
-# IMPORTANTE!!!: Este código solo soporta hasta 8 materias ya que es casi imposible cursar más de 8 materias en un cuatrimestre.
-# solo alguien con viajes en el tiempo podría cursar 8 materias al mismo tiempo.
-#Sin más que agregar si estas leyendo esto sos libre de modificar el código a tu gusto y necesidad y si querés compartirlo también.
+#El código es libre de uso y modificación, si queres colaborar con el proyecto podes hacerlo sin problemas.
+#Si tenes alguna sugerencia o mejora no dudes en comentarla.   
+#Sin más que agregar sos libre de modificar el código a tu gusto y necesidad y si querés compartirlo también.
 
 #El código también esta comentado para su mayor entendimiento. Esta programado en Python y usa la librería Tkinter para la interfaz gráfica.
-#Aca el enlace del repositorio --> https://github.com/Fabros96/organizadorMaterias
 #--------------------------------------------------------------------#
 
 from tkinter import ttk, messagebox, filedialog
@@ -34,7 +32,7 @@ materias = {}
 # Diccionario para almacenar los colores asignados a cada materia
 colores_materias = {}
 # Lista de colores base para asignar a las materias
-colores_base = ["PiYG", "summer", "winter", "vanimo", "hsv", "cool", "inferno_r", "#15d100"]
+colores_base = ["PiYG", "summer", "winter", "vanimo", "hsv", "cool", "inferno_r", "Pastel2"]
 # Índice para recorrer la lista de colores base
 indice_color = 0
 
@@ -46,7 +44,28 @@ def obtener_tema_sistema():
 
 # Función para cerrar una ventana con la tecla Escape
 def cerrar_con_esc(event):
-    event.widget.destroy()
+    # Solo cierra la ventana si el foco está en la ventana Toplevel
+    if isinstance(event.widget, tk.Toplevel):
+        event.widget.destroy()
+    else:
+        # Verificar si el widget con el foco está dentro de un contenedor que usa 'pack'
+        if event.widget.master and isinstance(event.widget.master, tk.Frame):
+            # Verificar que el contenedor master tenga 'pack_info', indicando que es un contenedor pack
+            if event.widget.master.pack_info():
+                # El widget está dentro de un contenedor que usa 'pack'
+                if event.widget.master.master:
+                    event.widget.master.master.destroy()  # Cierra la ventana contenedora
+                else:
+                    # Si no hay master.master, cerramos la ventana raíz (root o top-level)
+                    event.widget.master.destroy()
+            else:
+                # Si no está dentro de un 'pack', cerramos la ventana que tiene el foco
+                if event.widget.master:
+                    event.widget.master.destroy()
+        else:
+            # Si no está dentro de un 'Frame' o 'pack', simplemente cerramos el contenedor actual
+            if event.widget.master:
+                event.widget.master.destroy()
 
 # Función para abrir el perfil de GitHub en el navegador
 def abrir_github():
@@ -67,22 +86,37 @@ def exportar_grafico():
     file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
     if file_path:
         
+        # Buscar el horario de inicio más temprano solo de las materias visibles
+        horario_termino_antes = float('inf')  # Establecemos un valor muy grande inicialmente
+        
+        for materia, comisiones in materias.items():
+            for comision, horarios in comisiones.items():
+                if (materia, comision) in comisiones_visibles:  # Solo procesamos las materias visibles
+                    for dia, inicio, fin in horarios:
+                        if inicio < horario_termino_antes:
+                            horario_termino_antes = inicio
+
         # Crear una nueva figura y eje para el gráfico
         fig, ax = plt.subplots(figsize=(8, 6))
-        ax.set_xlim(8, 24)
-        ax.set_xticks(np.arange(8, 24, 0.25))
-        ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(8, 24, 0.25)], rotation=80)
+        
+        # Usar el horario más temprano para establecer el límite del gráfico
+        ax.set_xlim(horario_termino_antes, 24)  # Ajustar el límite de inicio en el horario más temprano encontrado
+        
+        # Establecer ticks y etiquetas para el eje x
+        ax.set_xticks(np.arange(horario_termino_antes, 24, 0.25))
+        ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(horario_termino_antes, 24, 0.25)], rotation=80)
+
         ax.set_ylim(-0.5, 6.5)
         ax.set_yticks(range(7))
-        ax.set_yticklabels(["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"])
+        ax.set_yticklabels(["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"])
         ax.set_xlabel("Hora")
         ax.set_ylabel("Día")
         ax.set_title("Horarios de Clases")
 
-        for x in np.arange(8, 24, 0.25):
+        for x in np.arange(horario_termino_antes, 24, 0.25):
             ax.axvline(x, color='#27282b', linestyle='--', linewidth=1, alpha=0.80)
 
-        dias = {"Lunes": 0, "Martes": 1, "Miercoles": 2, "Jueves": 3, "Viernes": 4, "Sabado": 5, "Domingo": 6}
+        dias = {"Lunes": 0, "Martes": 1, "Miércoles": 2, "Jueves": 3, "Viernes": 4, "Sábado": 5, "Domingo": 6}
 
         global indice_color
         for materia in materias.keys():
@@ -90,12 +124,12 @@ def exportar_grafico():
                 base_color = colores_base[indice_color % len(colores_base)]
                 indice_color += 1
                 colores_materias[materia] = [
-                    matplotlib.colormaps.get_cmap(base_color)(0.2 + 0.6 * i / 8) for i in range(8)
+                    matplotlib.colormaps.get_cmap(base_color)(0.2 + 0.6 * i / 10) for i in range(10)
                 ]
 
         # Crear el diccionario de rectángulos
         comisiones_rects = {}
-        barras_sin_superposicion = []  # Lista para las barras sin superposición
+        barras_sin_superposicion = []  # Lista para las barras sin superposición inicialmente
         for materia, comisiones in materias.items():
             for idx, (comision, horarios) in enumerate(comisiones.items()):
                 if (materia, comision) in comisiones_visibles:
@@ -227,6 +261,7 @@ def exportar_grafico():
     plt.close(fig)
     messagebox.showinfo("Éxito", "Gráfico exportado correctamente")
 
+
 def centrar_ventana(ventana):
     ventana.update_idletasks()
 
@@ -243,13 +278,14 @@ def centrar_ventana(ventana):
     pos_y = (pantalla_height // 2) - (ventana_height // 2)
 
     # Establecer la nueva posición de la ventana
-    ventana.geometry(f"{ventana_width}x{ventana_height}+{pos_x}+{pos_y}")
+    ventana.geometry(f"{ventana_width}x{ventana_height}+{pos_x}+{pos_y-100}")
 
 # Clase principal de la interfaz gráfica
 class HorarioGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Gestión de Horarios")
+        self.root.iconbitmap("logo.ico")
         root.minsize(400, 400)
         centrar_ventana(root)
         self.tema_actual = obtener_tema_sistema()
@@ -413,9 +449,9 @@ class HorarioGUI:
         top.title("AB Horarios")
         top.bind("<Escape>", cerrar_con_esc)
         top.focus_force()
-        top.minsize(400, 475)
-        top.geometry("400x475")
-        top.maxsize(800, 600)
+        top.minsize(300, 475)
+        top.geometry("300x475")
+        top.maxsize(300, 475)
 
         # Obtener la posición de la ventana principal (self.root)
         pos_x = self.root.winfo_rootx()
@@ -424,13 +460,13 @@ class HorarioGUI:
         # Establecer la posición de la ventana hija en la misma ubicación que la ventana principal
         top.geometry(f"300x275+{pos_x}+{pos_y}")
 
-        tk.Label(top, text="Seleccione Materia:").pack()
+        tk.Label(top, text="Seleccione Materia:").pack(pady=5)
         combo_materia = ttk.Combobox(top, values=list(materias.keys()))
-        combo_materia.pack()
+        combo_materia.pack(pady=5)
 
-        tk.Label(top, text="Seleccione Comisión:").pack()
+        tk.Label(top, text="Seleccione Comisión:").pack(pady=5)
         combo_comision = ttk.Combobox(top)
-        combo_comision.pack()
+        combo_comision.pack(pady=5)
 
         def actualizar_comisiones():
             materia = combo_materia.get()
@@ -444,37 +480,97 @@ class HorarioGUI:
 
             if materia and comision and materia in materias and comision in materias[materia]:
                 for dia, inicio, fin in materias[materia][comision]:
-                    listbox.insert(tk.END, f"{dia}: {inicio}-{fin}")
+                    horas_desde = int(inicio)
+                    minutos_desde = int((inicio - horas_desde) * 60)
+                    horas_hasta = int(fin)
+                    minutos_hasta = int((fin - horas_hasta) * 60)
+                    listbox.insert(tk.END, f"{dia}: {horas_desde:02}:{minutos_desde:02}-{horas_hasta:02}:{minutos_hasta:02}")
 
         combo_materia.bind("<<ComboboxSelected>>", lambda e: (actualizar_comisiones(), actualizar_horarios()))
         combo_comision.bind("<<ComboboxSelected>>", lambda e: actualizar_horarios())
 
         listbox = tk.Listbox(top)
-        listbox.pack()
+        listbox.pack(pady=5)
 
-        frame = tk.Frame(top)
-        frame.pack()
-        tk.Label(frame, text="Día:").grid(row=0, column=0)
-        tk.Label(frame, text="Desde:").grid(row=1, column=0)
-        tk.Label(frame, text="Hasta:").grid(row=2, column=0)
+        # Fila 1: Día
+        frame_dia = tk.Frame(top)
+        frame_dia.pack(fill="x", pady=5)  # Empaquetar el frame para la fila "Día"
 
-        entry_dia = ttk.Combobox(frame, values=["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"])
-        entry_dia.grid(row=0, column=1, pady=5)
-        entry_inicio = tk.Entry(frame)
-        entry_inicio.grid(row=1, column=1, pady=5)
-        entry_fin = tk.Entry(frame)
-        entry_fin.grid(row=2, column=1, pady=5)
+        tk.Label(frame_dia, text="Día:").pack(side="left", padx=(50, 0))
+        entry_dia = ttk.Combobox(frame_dia, values=["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"])
+        entry_dia.pack(side="left")
 
+        # Fila 2: Desde
+        frame_desde = tk.Frame(top)
+        frame_desde.pack(fill="x", pady=5)  # Empaquetar el frame para la fila "Desde"
+
+        tk.Label(frame_desde, text="Desde:").pack(side="left", padx=(50, 0))
+
+        entry_horas_desde = tk.Entry(frame_desde, width=7)
+        entry_horas_desde.pack(side="left")  # Entrar las horas
+
+        label_colon_1 = tk.Label(frame_desde, text=":", font=("Arial", 12))
+        label_colon_1.pack(side="left")
+
+        entry_minutos_desde = tk.Entry(frame_desde, width=7)
+        entry_minutos_desde.pack(side="left")  # Entrar los minutos
+
+        # Fila 3: Hasta
+        frame_hasta = tk.Frame(top)
+        frame_hasta.pack(fill="x", pady=5)  # Empaquetar el frame para la fila "Hasta"
+
+        tk.Label(frame_hasta, text="Hasta:").pack(side="left", padx=(50, 0))
+
+        entry_horas_hasta = tk.Entry(frame_hasta, width=7)
+        entry_horas_hasta.pack(side="left")  # Entrar las horas
+
+        label_colon_2 = tk.Label(frame_hasta, text=":", font=("Arial", 12))
+        label_colon_2.pack(side="left")
+
+        entry_minutos_hasta = tk.Entry(frame_hasta, width=7)
+        entry_minutos_hasta.pack(side="left")  # Entrar los minutos
+
+
+        # Funciones para agregar y eliminar horarios (definir antes de los botones)
         def agregar_horario():
             materia = combo_materia.get()
             comision = combo_comision.get()
             dia = entry_dia.get()
-            inicio = entry_inicio.get()
-            fin = entry_fin.get()
+            horasDesde = entry_horas_desde.get().strip() or "00"  # Asignar "00" si está vacío
+            minutosDesde = entry_minutos_desde.get().strip() or "00"  # Asignar "00" si está vacío
+            horasHasta = entry_horas_hasta.get().strip() or "00"  # Asignar "00" si está vacío
+            minutosHasta = entry_minutos_hasta.get().strip() or "00"  # Asignar "00" si está vacío
+            
+            # Validar que las horas estén entre 00 y 23
+            if not (0 <= int(horasDesde) <= 23):
+                messagebox.showerror("Error", "La hora debe estar entre 00 y 23")
+                return
+            
+            # Validar que los minutos estén entre 00 y 59
+            if not (0 <= int(minutosDesde) <= 59):
+                messagebox.showerror("Error", "Los minutos deben estar entre 00 y 59")
+                return
+            
+            # Validar que las horas estén entre 00 y 23
+            if not (0 <= int(horasHasta) <= 23):
+                messagebox.showerror("Error", "La hora debe estar entre 00 y 23")
+                return
+            
+            # Validar que los minutos estén entre 00 y 59
+            if not (0 <= int(minutosHasta) <= 59):
+                messagebox.showerror("Error", "Los minutos deben estar entre 00 y 59")
+                return
 
-            if materia and comision and dia and inicio and fin:
-                materias[materia][comision].append((dia, float(inicio), float(fin)))
-                listbox.insert(tk.END, f"{dia}: {inicio}-{fin}")
+            # Convertir hora y minutos a formato decimal
+            hora_decimal_desde = float(horasDesde) + float(minutosDesde) / 60.0
+
+            # Convertir hora de fin y minutos de fin a formato decimal
+            hora_decimal_hasta = float(horasHasta) + float(minutosHasta) / 60.0
+
+            # Verificar que los campos no estén vacíos
+            if materia and comision and dia and horasDesde and minutosDesde and horasHasta and minutosHasta:
+                materias[materia][comision].append((dia, hora_decimal_desde, hora_decimal_hasta))
+                listbox.insert(tk.END, f"{dia}: {horasDesde}:{minutosDesde}-{horasHasta}:{minutosHasta}")
                 actualizar_horarios()
                 messagebox.showinfo("Éxito", "Horario agregado")
             else:
@@ -497,16 +593,19 @@ class HorarioGUI:
             top.lift()
             top.focus_force()
 
-        btn_frame = tk.Frame(frame)
-        btn_frame.grid(row=5, column=0, columnspan=2, pady=15)
-        tk.Button(btn_frame, text="Agregar Horario", command=agregar_horario).pack(side=tk.LEFT, padx=5)
-        tk.Button(btn_frame, text="Eliminar Horario", command=eliminar_horario).pack(side=tk.LEFT, padx=5)
+        # Botón para agregar y eliminar horario
+        btn_frame = tk.Frame(top)
+        btn_frame.pack(pady=1)
 
-        tk.Label(frame, text="Hora decimal, ej. 14.5 para 14:30").grid(row=6, column=0, columnspan=2)
-        tk.Label(frame, text="14.75 para 14:45 y 14.25 para 14:15").grid(row=7, column=0, columnspan=2)
+        tk.Button(btn_frame, text="Agregar Horario", command=agregar_horario).pack(side="left", padx=5)
+        tk.Button(btn_frame, text="Eliminar Horario", command=eliminar_horario).pack(side="left", padx=5)
+
+        tk.Label(top, text="Si hay algún campo vacío, tomará el valor de 00").pack(pady=1)
 
         top.bind("<Return>", lambda e: agregar_horario())
         top.bind("<Delete>", lambda e: eliminar_horario())
+
+
 
 
 
