@@ -26,8 +26,6 @@ import numpy as np
 import json
 import matplotlib
 import webbrowser
-import datetime
-import os
 
 # Diccionario para almacenar las materias y sus comisiones
 materias = {}
@@ -79,9 +77,7 @@ def obtener_materias_visibles(comisiones_rects):
     for (materia, comision), rects in comisiones_rects.items():
         if any(bar.get_visible() for bar in rects):
             visibles.append((materia, comision))
-    
     return visibles
-
 
 # Función para exportar el gráfico a un archivo PNG
 def exportar_grafico():
@@ -192,7 +188,6 @@ def exportar_grafico():
                                            ha='center', va='center', fontsize=14, color='white',
                                            fontname='Arial', zorder=6)
                             text.set_path_effects([patheffects.withStroke(linewidth=3, foreground='black')])
-
                         else:
                             # Superposición parcial: mostrar solo la referencia
                             referencia = referencias.pop(0)
@@ -212,8 +207,7 @@ def exportar_grafico():
                 # Añadir texto de la comisión dentro del rectángulo
                 text = ax.text(
                     inicio + (fin - inicio) / 2, dia_num, f"{materia}-{comision}", ha='center', va='center',
-                    fontsize=14, color='white', fontname='Arial', zorder=6
-                )
+                    fontsize=14, color='white', fontname='Arial', zorder=6)
                 text.set_path_effects([patheffects.withStroke(linewidth=3, foreground='black')])
 
         # Crear leyenda a la derecha para superposiciones parciales y totales
@@ -255,7 +249,6 @@ def exportar_grafico():
         for materia, color in colores_materias.items():
             patch = mpatches.Patch(color=color[0], label=materia)
             handles.append(patch)
-
         ax.legend(handles=handles, loc='upper left', bbox_to_anchor=(1, 1))
 
     # Guardar la figura como un archivo PNG
@@ -263,22 +256,17 @@ def exportar_grafico():
     plt.close(fig)
     messagebox.showinfo("Éxito", "Gráfico exportado correctamente")
 
-
 def centrar_ventana(ventana):
     ventana.update_idletasks()
-
     # Obtener el tamaño de la pantalla
     pantalla_width = ventana.winfo_screenwidth()
     pantalla_height = ventana.winfo_screenheight()
-
     # Obtener el tamaño de la ventana
     ventana_width = ventana.winfo_width()
     ventana_height = ventana.winfo_height()
-
     # Calcular la posición de la ventana para centrarla
     pos_x = (pantalla_width // 2) - (ventana_width // 2)
     pos_y = (pantalla_height // 2) - (ventana_height // 2)
-
     # Establecer la nueva posición de la ventana
     ventana.geometry(f"{ventana_width}x{ventana_height}+{pos_x}+{pos_y-100}")
 
@@ -351,8 +339,6 @@ class HorarioGUI:
                 messagebox.showerror("Error", "Nombre inválido o ya existente")
             top.lift()
             top.focus_force()
-
-        
 
         # Función para eliminar una materia seleccionada
         def eliminar_materia():
@@ -543,30 +529,16 @@ class HorarioGUI:
             horasHasta = entry_horas_hasta.get().strip() or "00"  # Asignar "00" si está vacío
             minutosHasta = entry_minutos_hasta.get().strip() or "00"  # Asignar "00" si está vacío
             
-            # Validar que las horas estén entre 00 y 23
-            if not (0 <= int(horasDesde) <= 23):
-                messagebox.showerror("Error", "La hora debe estar entre 00 y 23")
+            # Validar que las horas y minutos estén entre 00 y 23
+            if (not (0 <= int(horasDesde) <= 23)) or (not (0 <= int(horasHasta) <= 23)):
+                messagebox.showerror("Error", "Las horas debe estar entre 00 y 23")
                 return
             
-            # Validar que los minutos estén entre 00 y 59
-            if not (0 <= int(minutosDesde) <= 59):
+            if (not (0 <= int(minutosDesde) <= 59)) or (not (0 <= int(minutosHasta) <= 59)):
                 messagebox.showerror("Error", "Los minutos deben estar entre 00 y 59")
                 return
-            
-            # Validar que las horas estén entre 00 y 23
-            if not (0 <= int(horasHasta) <= 23):
-                messagebox.showerror("Error", "La hora debe estar entre 00 y 23")
-                return
-            
-            # Validar que los minutos estén entre 00 y 59
-            if not (0 <= int(minutosHasta) <= 59):
-                messagebox.showerror("Error", "Los minutos deben estar entre 00 y 59")
-                return
-
             # Convertir hora y minutos a formato decimal
             hora_decimal_desde = float(horasDesde) + float(minutosDesde) / 60.0
-
-            # Convertir hora de fin y minutos de fin a formato decimal
             hora_decimal_hasta = float(horasHasta) + float(minutosHasta) / 60.0
 
             # Verificar que los campos no estén vacíos
@@ -607,10 +579,6 @@ class HorarioGUI:
         top.bind("<Return>", lambda e: agregar_horario())
         top.bind("<Delete>", lambda e: eliminar_horario())
 
-
-
-
-
     # Método para exportar los datos a un archivo JSON
     def exportar_json(self):
         file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json")])
@@ -639,9 +607,7 @@ class HorarioGUI:
         else:
             self.tema_actual = "darkly"
             new_icon = "🌞"
-
         self.style.theme_use(self.tema_actual)
-
         self.style.configure("Tema.TButton", font=("Arial", 20))
         self.style.configure("Github.TButton", font=("Arial", 20))
         self.btn_tema.config(text=new_icon, style="Tema.TButton")
@@ -652,10 +618,6 @@ class HorarioGUI:
         top = tk.Toplevel(self.root)
         top.title("Gráfico de Horarios")
         top.bind("<Escape>", cerrar_con_esc)
-
-        # Ajustar la posición y el tamaño de la ventana
-        #top.geometry("1200x700")  # Ajusta el tamaño (ancho x alto) de la ventana
-
         top.rowconfigure(0, weight=1)
         top.columnconfigure(0, weight=3)
         top.columnconfigure(1, weight=1)
@@ -675,7 +637,7 @@ class HorarioGUI:
         ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(earliest_start, 24, 0.25)], rotation=80)
         ax.set_ylim(-0.5, 6.5)
         ax.set_yticks(range(7))
-        ax.set_yticklabels(["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"])
+        ax.set_yticklabels(["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sabado", "Domingo"])
         ax.set_xlabel("Hora")
         ax.set_ylabel("Día")
         ax.set_title("Horarios de Clases")
@@ -683,7 +645,7 @@ class HorarioGUI:
         for x in np.arange(earliest_start, 24, 0.25):
             ax.axvline(x, color='#27282b', linestyle='--', linewidth=1, alpha=0.80)
 
-        dias = {"Lunes": 0, "Martes": 1, "Miercoles": 2, "Jueves": 3, "Viernes": 4, "Sabado": 5, "Domingo": 6}
+        dias = {"Lunes": 0, "Martes": 1, "Miércoles": 2, "Jueves": 3, "Viernes": 4, "Sabado": 5, "Domingo": 6}
         comisiones_rects = {}
         solapamiento_patches = []
 
@@ -743,12 +705,6 @@ class HorarioGUI:
 
         actualizar_solapamientos()
 
-        # Función para alternar la visibilidad de una comisión
-        # Arreglo global para almacenar las comisiones visibles
-
-        # Arreglo global para almacenar las comisiones visibles
-
-
         # Inicializar todas las materias y sus comisiones como visibles
         def inicializar_comisiones_visibles():
             global comisiones_visibles
@@ -782,8 +738,6 @@ class HorarioGUI:
 
             # Redibujar el canvas solo si se está actualizando el estado de las barras
             canvas.draw()
-
-
 
         # Crear un marco para la leyenda de materias y comisiones
         legend_frame = tk.Frame(top, bg="white", padx=5, pady=5)
