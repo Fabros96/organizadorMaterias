@@ -637,7 +637,7 @@ class HorarioGUI:
         ax.set_xticklabels([f"{int(h)}:{int((h % 1) * 60):02d}" for h in np.arange(earliest_start, 24, 0.25)], rotation=80)
         ax.set_ylim(-0.5, 6.5)
         ax.set_yticks(range(7))
-        ax.set_yticklabels(["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sabado", "Domingo"])
+        ax.set_yticklabels(["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"])
         ax.set_xlabel("Hora")
         ax.set_ylabel("Día")
         ax.set_title("Horarios de Clases")
@@ -645,7 +645,7 @@ class HorarioGUI:
         for x in np.arange(earliest_start, 24, 0.25):
             ax.axvline(x, color='#27282b', linestyle='--', linewidth=1, alpha=0.80)
 
-        dias = {"Lunes": 0, "Martes": 1, "Miércoles": 2, "Jueves": 3, "Viernes": 4, "Sabado": 5, "Domingo": 6}
+        dias = {"Lunes": 0, "Martes": 1, "Miércoles": 2, "Jueves": 3, "Viernes": 4, "Sábado": 5, "Domingo": 6}
         comisiones_rects = {}
         solapamiento_patches = []
 
