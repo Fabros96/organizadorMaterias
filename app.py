@@ -16,6 +16,8 @@ import tkinter as tk
 import webbrowser
 from tkinter import messagebox, filedialog, ttk
 
+import os
+
 import darkdetect
 import matplotlib
 import matplotlib.patheffects as patheffects
@@ -259,13 +261,29 @@ class HorarioGUI:
         self.root = root
         self.root.title("Gestión de Horarios")
 
-        # Usar PNG como icono compatible con Linux
-        try:
-            logo_image = Image.open('icos/logo.png').convert("RGBA")
-            self.icon = ImageTk.PhotoImage(logo_image)
-            self.root.iconphoto(True, self.icon)
-        except Exception as e:
-            print(f"No se pudo cargar el ícono: {e}")
+        # Ruta base del archivo .py actual
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        icon_relative_path = os.path.join("icos", "logo.png")
+        icon_paths = [
+            os.path.join(os.getcwd(), icon_relative_path),  # desde donde se ejecuta el script
+            os.path.join(base_dir, icon_relative_path),     # relativo a la ubicación del .py
+        ]
+
+        # Intentar cargar el ícono
+        logo_cargado = False
+        for path in icon_paths:
+            if os.path.exists(path):
+                try:
+                    logo_image = Image.open(path).convert("RGBA")
+                    self.icon = ImageTk.PhotoImage(logo_image)
+                    self.root.iconphoto(True, self.icon)
+                    logo_cargado = True
+                    break
+                except Exception as e:
+                    print(f"⚠️ No se pudo cargar el ícono desde {path}: {e}")
+
+        if not logo_cargado:
+            print("❌ No se encontró ningún ícono válido para la ventana.")
 
         root.minsize(400, 400)
         centrar_ventana(root)
@@ -276,16 +294,25 @@ class HorarioGUI:
         self.style.configure("Tema.TButton", font=("Arial", 20))
         self.style.configure("Github.TButton", font=("Arial", 20))
 
-        # Icono de GitHub
-        try:
-            github_icon = Image.open('icos/gh.png').convert("RGBA")
-            github_icon = github_icon.resize((30, 30), Image.LANCZOS)
-            self.github_icon = ImageTk.PhotoImage(github_icon)
-            github_button_text = "Fabros96"
-        except Exception as e:
-            print(f"No se pudo cargar el ícono de GitHub: {e}")
-            self.github_icon = None
-            github_button_text = "@Fabros96"
+        # Icono de GitHub (mismo manejo que logo)
+        github_icon_path = os.path.join("icos", "gh.png")
+        github_paths = [
+            os.path.join(os.getcwd(), github_icon_path),
+            os.path.join(base_dir, github_icon_path),
+        ]
+        self.github_icon = None
+        github_button_text = "@Fabros96"
+
+        for path in github_paths:
+            if os.path.exists(path):
+                try:
+                    github_icon = Image.open(path).convert("RGBA")
+                    github_icon = github_icon.resize((30, 30), Image.LANCZOS)
+                    self.github_icon = ImageTk.PhotoImage(github_icon)
+                    github_button_text = "Fabros96"
+                    break
+                except Exception as e:
+                    print(f"⚠️ No se pudo cargar el ícono de GitHub desde {path}: {e}")
 
         self.crear_menu_principal()
 

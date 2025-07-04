@@ -3,10 +3,36 @@
 # Variables
 ICON_PNG="./icos/logo.png"
 ICON_ICO="./icos/logo.ico"
-EXECUTABLE_NAME="OrganizadorLinux"
+EXECUTABLE_NAME="Organizador"
 LAUNCHER_SCRIPT="launcher_linux.py"
 VENV_NAME="venv_pyinst"
 DESKTOP_FILE="$HOME/.local/share/applications/organizador.desktop"
+ICON_DEST_DIR="$HOME/.local/share/icons/hicolor/48x48/apps"
+ICON_NAME="logo"  # Nombre para el icono sin extensión
+
+# Obtener ruta absoluta del script launcher_linux.py
+SCRIPT_DIR=$(dirname "$(realpath "$LAUNCHER_SCRIPT")")
+
+# Verificar si el ícono PNG existe, si no, usar ruta desde el script
+if [ ! -f "$ICON_PNG" ]; then
+    ALT_ICON_PNG="$SCRIPT_DIR/icos/logo.png"
+    if [ -f "$ALT_ICON_PNG" ]; then
+        ICON_PNG="$ALT_ICON_PNG"
+        echo "📂 Usando ícono alternativo desde: $ICON_PNG"
+    else
+        echo "❌ No se encontró el ícono PNG en ninguna de las rutas esperadas."
+        exit 1
+    fi
+fi
+
+# Verificar si el ícono ICO existe, si no usar ruta alternativa
+if [ ! -f "$ICON_ICO" ]; then
+    ALT_ICON_ICO="$SCRIPT_DIR/icos/logo.ico"
+    if [ -f "$ALT_ICON_ICO" ]; then
+        ICON_ICO="$ALT_ICON_ICO"
+        echo "📂 Usando ícono .ico alternativo desde: $ICON_ICO"
+    fi
+fi
 
 # Crear entorno virtual para PyInstaller si no existe
 if [ ! -d "$VENV_NAME" ]; then
@@ -65,6 +91,12 @@ fi
 
 deactivate
 
+# Crear directorio para iconos estándar y copiar el icono PNG
+echo "📁 Copiando ícono a directorio estándar..."
+mkdir -p "$ICON_DEST_DIR"
+cp "$ICON_PNG" "$ICON_DEST_DIR/$ICON_NAME.png"
+chmod 644 "$ICON_DEST_DIR/$ICON_NAME.png"
+
 # Crear archivo .desktop
 echo "📁 Creando archivo .desktop..."
 
@@ -73,16 +105,20 @@ mkdir -p "$(dirname "$DESKTOP_FILE")"
 cat > "$DESKTOP_FILE" << EOL
 [Desktop Entry]
 Type=Application
-Name=Organizador Horarios
-Comment=Aplicación para gestión de horarios
+Name=Organizador
+Comment=Aplicación para gestión de horarios UTN FRM
 Exec=$(pwd)/$EXECUTABLE_NAME
-Icon=$(pwd)/$ICON_PNG
+Icon=$ICON_NAME
 Terminal=false
 Categories=Utility;Education;
 StartupNotify=true
 EOL
 
 chmod +x "$DESKTOP_FILE"
+
+# Actualizar caché de iconos
+echo "♻️ Actualizando caché de iconos..."
+gtk-update-icon-cache ~/.local/share/icons/hicolor
 
 echo "✅ Archivo .desktop creado en: $DESKTOP_FILE"
 echo "🎯 Podés buscar 'Organizador Horarios' en tu menú de aplicaciones."
