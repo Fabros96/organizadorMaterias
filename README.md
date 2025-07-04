@@ -1,3 +1,20 @@
+#  -- TUTORIAL --
+
+
+#Crea una terminal en la carpeta contenedora de la app
+#corre 'chmod +x build_launcher_linux.sh'
+#y luego './build_launcher_linux.sh'
+
+#  -- TUTORIAL --
+
+
+
+
+
+
+
+
+
 # "OrganizadorMaterias"
 
 #Hecho por Fabrizio Azeglio (@Fabros96) para organizar los horarios de cursado de la FRM-UTN. 

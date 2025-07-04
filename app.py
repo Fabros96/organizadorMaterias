@@ -11,21 +11,22 @@
 #El ejecutable esta en la ruta 'organizadorMaterias\dist' y
 #--------------------------------------------------------------------#
 
-from tkinter import ttk, messagebox, filedialog
+import json
+import tkinter as tk
+import webbrowser
+from tkinter import messagebox, filedialog, ttk
+
 import darkdetect
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from ttkbootstrap.constants import *
-from PIL import Image, ImageTk
+import matplotlib
 import matplotlib.patheffects as patheffects
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
-import ttkbootstrap as tb
-import tkinter as tk
 import numpy as np
-import json
-import matplotlib
-import webbrowser
+import ttkbootstrap as tb
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from PIL import Image, ImageTk
+from ttkbootstrap.constants import *
+
 
 # Diccionario para almacenar las materias y sus comisiones
 materias = {}
@@ -44,28 +45,10 @@ def obtener_tema_sistema():
 
 # Función para cerrar una ventana con la tecla Escape
 def cerrar_con_esc(event):
-    # Solo cierra la ventana si el foco está en la ventana Toplevel
-    if isinstance(event.widget, tk.Toplevel):
-        event.widget.destroy()
-    else:
-        # Verificar si el widget con el foco está dentro de un contenedor que usa 'pack'
-        if event.widget.master and isinstance(event.widget.master, tk.Frame):
-            # Verificar que el contenedor master tenga 'pack_info', indicando que es un contenedor pack
-            if event.widget.master.pack_info():
-                # El widget está dentro de un contenedor que usa 'pack'
-                if event.widget.master.master:
-                    event.widget.master.master.destroy()  # Cierra la ventana contenedora
-                else:
-                    # Si no hay master.master, cerramos la ventana raíz (root o top-level)
-                    event.widget.master.destroy()
-            else:
-                # Si no está dentro de un 'pack', cerramos la ventana que tiene el foco
-                if event.widget.master:
-                    event.widget.master.destroy()
-        else:
-            # Si no está dentro de un 'Frame' o 'pack', simplemente cerramos el contenedor actual
-            if event.widget.master:
-                event.widget.master.destroy()
+    # Cierra la ventana Toplevel que contiene el widget que recibió el evento.
+    widget = event.widget
+    if isinstance(widget.winfo_toplevel(), tk.Toplevel):
+        widget.winfo_toplevel().destroy()
 
 # Función para abrir el perfil de GitHub en el navegador
 def abrir_github():
@@ -275,28 +258,35 @@ class HorarioGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Gestión de Horarios")
-        self.root.iconbitmap('logo.ico')
+
+        # Usar PNG como icono compatible con Linux
+        try:
+            logo_image = Image.open('icos/logo.png').convert("RGBA")
+            self.icon = ImageTk.PhotoImage(logo_image)
+            self.root.iconphoto(True, self.icon)
+        except Exception as e:
+            print(f"No se pudo cargar el ícono: {e}")
+
         root.minsize(400, 400)
         centrar_ventana(root)
         self.tema_actual = obtener_tema_sistema()
         self.style = tb.Style(theme=self.tema_actual)
 
-        # Configuración de estilos para los botones
+        # Estilos
         self.style.configure("Tema.TButton", font=("Arial", 20))
         self.style.configure("Github.TButton", font=("Arial", 20))
 
-        # Cargar y redimensionar el icono de GitHub
-        github_icon_path = 'gh.ico'
+        # Icono de GitHub
         try:
-            github_icon = Image.open(github_icon_path)
+            github_icon = Image.open('icos/gh.png').convert("RGBA")
             github_icon = github_icon.resize((30, 30), Image.LANCZOS)
             self.github_icon = ImageTk.PhotoImage(github_icon)
             github_button_text = "Fabros96"
         except Exception as e:
+            print(f"No se pudo cargar el ícono de GitHub: {e}")
             self.github_icon = None
             github_button_text = "@Fabros96"
 
-        # Crear el menú principal
         self.crear_menu_principal()
 
     # Método para crear el menú de ABM de materias
