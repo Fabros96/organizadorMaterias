@@ -1,0 +1,123 @@
+{
+  "Algebra y Geometria Analitica": {
+    "1RIV1": [["Jueves", 15.5, 18.5], ["Viernes", 14.0, 18.5]],
+    "1X10": [["Miercoles", 16.0, 18.25], ["Jueves", 16.75, 18.25], ["Viernes", 14.5, 17.5]],
+    "1X19": [["Lunes", 19.0, 21.25], ["Martes", 19.0, 20.5], ["Miercoles", 19.0, 22.0]],
+    "1X190": [["Lunes", 8.75, 11.75], ["Martes", 8.0, 11.75]]
+  },
+  "Analisis Matematico I": {
+    "1RIV1": [["Lunes", 14.0, 17.0], ["Martes", 14.0, 15.5], ["Martes", 15.5, 17.0], ["Jueves", 14.0, 15.5]],
+    "1X10": [["Lunes", 13.75, 15.25], ["Lunes", 17.5, 19.0], ["Martes", 16.75, 19.0], ["Jueves", 14.5, 16.0]],
+    "1X19": [["Lunes", 21.25, 22.75], ["Martes", 20.5, 22.75], ["Jueves", 20.5, 23.5]],
+    "1X190": [["Martes", 11.75, 13.25], ["Viernes", 8.0, 13.25]]
+  },
+  "Ingenieria Electromecanica I": {
+    "1RIV1": [["Lunes", 18.0, 19.5]],
+    "1X10": [["Lunes", 15.25, 16.75]],
+    "1X19": [["Jueves", 19.0, 20.5]],
+    "1X190": [["Jueves", 10.25, 11.75]]
+  },
+  "Sistemas de Representacion": {
+    "1RIV1": [["Martes", 17.25, 19.5], ["Miercoles", 14.0, 16.25]],
+    "1X10": [["Sabado", 8.0, 12.5]],
+    "1X19": [["Martes", 16.75, 19.0], ["Viernes", 14.5, 16.75]],
+    "1X190": [["Miercoles", 8.0, 12.5]]
+  },
+  "Analisis Matematico II": {
+    "2X10": [["Lunes", 21.25, 23.5], ["Miercoles", 21.25, 23.5], ["Jueves", 20.5, 22.0], ["Viernes", 19.0, 20.5]],
+    "2X4": [["Lunes", 13.75, 19.0], ["Miercoles", 16.75, 19.0]],
+    "2X44": [["Lunes", 13.75, 19.0], ["Jueves", 16.75, 19.0]]
+  },
+  "Conocimiento de Materiales": {
+    "2X10": [["Martes", 19.75, 21.25], ["Jueves", 19.0, 20.5]],
+    "2X4": [["Martes", 16.75, 18.25], ["Jueves", 17.5, 19.0]],
+    "2X44": [["Martes", 18.25, 19.75], ["Jueves", 20.5, 22.0]]
+  },
+  "Estabilidad": {
+    "2X10": [["Lunes", 19.0, 21.25], ["Miercoles", 19.0, 21.25]],
+    "2X4": [["Martes", 14.5, 16.75], ["Jueves", 14.5, 16.75]],
+    "2X44": [["Martes", 13.75, 16.0], ["Jueves", 14.5, 16.75]]
+  },
+  "Fisica II": {
+    "2X10": [["Martes", 16.75, 19.75], ["Jueves", 22.0, 23.5], ["Viernes", 20.5, 23.5]],
+    "2X4": [["Jueves", 9.5, 12.5], ["Viernes", 14.5, 19.0]],
+    "2X44": [["Martes", 16.0, 18.25], ["Viernes", 14.5, 19.0]]
+  },
+  "Ingenieria Electromecanica II": {
+    "2X10": [["Martes", 21.25, 22.75]],
+    "2X4": [["Miercoles", 15.25, 16.75]]
+  },
+  "Ingles I": {
+    "2B-52": [["Martes", 17.5, 19.0], ["Jueves", 17.5, 19.0]],
+    "2B-57": [["Lunes", 19.0, 20.5], ["Miercoles", 19.0, 20.5]]
+  },
+  "Comunicacion Linguistica (Elec.)": {
+    "3X80": [["Lunes", 9.0, 12.0]],
+    "3X81": [["Lunes", 14.0, 17.0]]
+  },
+  "Electrotecnia": {
+    "3X3": [["Jueves", 20.5, 22.0], ["Viernes", 19.0, 22.0]],
+    "3X4": [["Lunes", 19.0, 22.0], ["Jueves", 22.0, 23.5]],
+    "3X5": [["Jueves", 20.5, 22.0], ["Viernes", 19.0, 22.0]]
+  },
+  "Ingenieria Electromecanica III": {
+    "3X3": [["Miercoles", 18.25, 20.5], ["Sabado", 8.0, 10.25]],
+    "3X4": [["Miercoles", 20.5, 22.75], ["Sabado", 10.25, 12.5]]
+  },
+  "Ingles II": {
+    "3B-62": [["Lunes", 12.5, 14.0], ["Miercoles", 12.5, 14.0]]
+  },
+  "Matematica para Ingenieria Electromecanica": {
+    "3X3": [["Miercoles", 19.0, 20.5], ["Jueves", 22.0, 23.5], ["Viernes", 22.0, 23.5]],
+    "3X4": [["Martes", 19.0, 20.5], ["Miercoles", 22.0, 23.5], ["Viernes", 22.0, 23.5]]
+  },
+  "Mecanica y Mecanismos": {
+    "3X3": [["Lunes", 20.5, 22.0], ["Martes", 19.0, 20.5]],
+    "3X4": [["Lunes", 22.0, 23.5], ["Jueves", 19.0, 20.5]],
+    "3X5": [["Lunes", 20.5, 22.0], ["Martes", 19.0, 20.5]]
+  },
+  "Tecnologia Mecanica": {
+    "3X3": [["Lunes", 18.25, 20.5], ["Jueves", 19.0, 20.5]],
+    "3X4": [["Martes", 20.5, 22.75], ["Jueves", 20.5, 22.0]]
+  },
+  "Termodinamica Tecnica": {
+    "3X3": [["Martes", 20.5, 23.5], ["Miercoles", 20.5, 23.5]],
+    "3X4": [["Miercoles", 19.0, 22.0], ["Viernes", 19.0, 22.0]]
+  },
+  "Administracion de Recursos Humanos (Elec.)": {
+    "4X3": [["Sabado", 8.0, 12.5]]
+  },
+  "Elementos de Maquinas": {
+    "4X3": [["Martes", 21.25, 23.5], ["Viernes", 21.25, 23.5]],
+    "4X4": [["Martes", 19.0, 21.25], ["Viernes", 19.0, 21.25]]
+  },
+  "Legislacion": {
+    "4X3": [["Martes", 16.0, 19.0]],
+    "4X4": [["Viernes", 16.0, 19.0]]
+  },
+  "Maquinas Electricas": {
+    "4X3": [["Jueves", 20.5, 22.0], ["Viernes", 19.0, 21.25]],
+    "4X4": [["Lunes", 19.0, 21.25], ["Jueves", 19.0, 20.5]]
+  },
+  "Maquinas Termicas": {
+    "4X3": [["Lunes", 19.75, 21.25], ["Martes", 19.0, 21.25]],
+    "4X4": [["Lunes", 21.25, 22.75], ["Martes", 21.25, 23.5]]
+  },
+  "Mecanica de los Fluidos y Maquinas Fluidodinamicas": {
+    "4X3": [["Miercoles", 19.0, 21.25], ["Jueves", 19.0, 20.5]],
+    "4X4": [["Miercoles", 21.25, 23.5], ["Jueves", 20.5, 22.0]]
+  },
+  "Mediciones Electricas": {
+    "4X3": [["Lunes", 21.25, 23.5], ["Miercoles", 21.25, 23.5], ["Jueves", 22.0, 23.5]],
+    "4X4": [["Miercoles", 19.0, 21.25], ["Jueves", 22.0, 23.5], ["Viernes", 21.25, 23.5]]
+  },
+  "Automatizacion y Control Industrial": {
+    "5X2": [["Lunes", 19.0, 21.25], ["Viernes", 19.0, 21.25]]
+  },
+  "Instalaciones Termicas y Mecanicas": {
+    "5X2": [["Lunes", 21.25, 23.5], ["Martes", 20.5, 22.75]]
+  },
+  "Redes de Distribucion e Instalaciones Electricas": {
+    "5X2": [["Martes", 19.0, 20.5], ["Viernes", 21.25, 23.5]]
+  }
+}

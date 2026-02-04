@@ -1,0 +1,135 @@
+{
+  "Algebra y Geometria Analitica": {
+    "1P09": [["Lunes", 16.0, 19.0], ["Miercoles", 13.75, 16.0], ["Jueves", 14.5, 16.0]],
+    "1P18": [["Jueves", 20.5, 23.5], ["Viernes", 19.0, 22.75]],
+    "1P99": [["Miercoles", 8.0, 10.25], ["Jueves", 8.0, 9.5], ["Viernes", 8.0, 11.0]]
+  },
+  "Analisis Matematico I": {
+    "1P09": [["Lunes", 14.5, 16.0], ["Jueves", 16.0, 18.25], ["Viernes", 14.5, 17.5]],
+    "1P18": [["Lunes", 19.0, 21.25], ["Miercoles", 20.5, 23.5], ["Jueves", 19.0, 20.5]],
+    "1P99": [["Martes", 12.5, 14.0], ["Miercoles", 10.25, 13.25], ["Viernes", 11.0, 13.25]]
+  },
+  "Comunicacion Linguistica (Elec.)": {
+    "1P80": [["Lunes", 9.0, 12.0]],
+    "1P81": [["Lunes", 14.0, 17.0]]
+  },
+  "Fisica I": {
+    "1P90": [["Lunes", 14.5, 16.0], ["Martes", 14.5, 17.5], ["Miercoles", 14.5, 17.5]]
+  },
+  "Fundamentos de Informatica": {
+    "1P09": [["Miercoles", 19.0, 20.5]],
+    "1P18": [["Miercoles", 17.5, 19.0]],
+    "1RIV4": [["Miercoles", 16.5, 19.5]]
+  },
+  "Ingenieria Civil I": {
+    "1P09": [["Martes", 14.5, 16.75]],
+    "1P18": [["Martes", 19.0, 21.25]],
+    "1P99": [["Martes", 10.25, 12.42]],
+    "1RIV4": [["Lunes", 17.25, 19.5]]
+  },
+  "Ingenieria y Sociedad": {
+    "1P09": [["Miercoles", 16.0, 19.0]],
+    "1P18": [["Lunes", 21.25, 22.75], ["Miercoles", 19.0, 20.5]],
+    "1P99": [["Lunes", 9.5, 12.5]]
+  },
+  "Sistemas de Representacion": {
+    "1P09": [["Martes", 16.75, 19.0]],
+    "1P18": [["Martes", 21.25, 23.5]],
+    "1P99": [["Martes", 8.0, 10.25]],
+    "1RIV4": [["Martes", 17.25, 19.5], ["Miercoles", 10.5, 12.75], ["Miercoles", 14.0, 16.25], ["Jueves", 8.0, 10.25]]
+  },
+  "Analisis Matematico II": {
+    "2P03": [["Lunes", 14.5, 16.75], ["Jueves", 16.0, 17.5]],
+    "2P09": [["Miercoles", 20.5, 22.75], ["Viernes", 21.25, 22.75]]
+  },
+  "Estabilidad": {
+    "2P03": [["Lunes", 14.5, 19.0], ["Jueves", 14.5, 17.5]],
+    "2P09": [["Lunes", 19.0, 23.5], ["Miercoles", 19.0, 22.0]]
+  },
+  "Ingenieria Civil II": {
+    "2P03": [["Viernes", 16.75, 19.0]],
+    "2P09": [["Martes", 19.0, 21.25]]
+  },
+  "Ingles I": {
+    "2B-54": [["Martes", 11.0, 12.5], ["Jueves", 11.0, 12.5]]
+  },
+  "Tecnologia de los Materiales": {
+    "2P03": [["Miercoles", 14.5, 16.0], ["Jueves", 17.5, 19.0]],
+    "2P09": [["Martes", 21.25, 22.75], ["Jueves", 19.0, 20.5]],
+    "2P31": [["Jueves", 14.0, 16.5]]
+  },
+  "Geologia Aplicada (Elec.)": {
+    "3P02": [["Lunes", 16.0, 19.0]]
+  },
+  "Hidraulica General y Aplicada": {
+    "3P01": [["Miercoles", 17.5, 20.5]],
+    "3P02": [["Miercoles", 19.0, 23.5]]
+  },
+  "Ingles II": {
+    "3B-64": [["Martes", 16.0, 17.5], ["Jueves", 16.0, 17.5]]
+  },
+  "Instalaciones Electricas y Acústicas": {
+    "3P01": [["Lunes", 17.5, 20.5]],
+    "3P02": [["Jueves", 19.0, 22.0]]
+  },
+  "Instalaciones Termomecanicas": {
+    "3P01": [["Viernes", 16.0, 19.0]],
+    "3P02": [["Lunes", 19.0, 22.0]]
+  },
+  "Resistencia de Materiales": {
+    "3P01": [["Martes", 15.25, 18.25]],
+    "3P02": [["Martes", 19.0, 22.0]]
+  },
+  "Tecnologia de la Construccion": {
+    "3P01": [["Jueves", 14.5, 19.0]],
+    "3P02": [["Viernes", 19.0, 23.5]]
+  },
+  "Tecnologia del Hormigon": {
+    "3P01": [["Miercoles", 14.5, 17.5]],
+    "3P02": [["Miercoles", 17.5, 20.5]]
+  },
+  "Analisis Estructural I": {
+    "4P01": [["Lunes", 19.75, 23.5], ["Martes", 17.5, 21.25]],
+    "4P02": [["Miercoles", 13.75, 17.5], ["Jueves", 13.75, 17.5]]
+  },
+  "Dinamica de Estructuras (Elec.)": {
+    "5P01": [["Miercoles", 14.5, 19.0]]
+  },
+  "Diseño Arquitectonico, Planeamiento y Urbanismo": {
+    "4P01": [["Miercoles", 19.75, 23.5]]
+  },
+  "Hidrologia y Obras Hidraulicas": {
+    "4P01": [["Lunes", 16.75, 19.75], ["Lunes", 20.5, 23.5]],
+    "4P02": [["Martes", 13.75, 16.75], ["Martes", 14.5, 17.5]]
+  },
+  "Instalaciones Sanitarias y de Gas": {
+    "4P01": [["Martes", 21.25, 23.5], ["Miercoles", 17.5, 19.75]]
+  },
+  "Sustentabilidad del Recurso Hidrico (Elec.)": {
+    "4P01": [["Jueves", 20.5, 23.5], ["Viernes", 16.0, 19.0]]
+  },
+  "Vias de Comunicacion I": {
+    "4P01": [["Jueves", 17.5, 20.5], ["Viernes", 19.0, 22.0]]
+  },
+  "Analisis Estructural III (Elec.)": {
+    "5P01": [["Jueves", 15.25, 19.75]]
+  },
+  "Caminos y Túneles de Montaña (Elec.)": {
+    "5P01": [["Miercoles", 19.0, 23.5]]
+  },
+  "Cimentaciones": {
+    "5P01": [["Martes", 19.0, 23.5]]
+  },
+  "Gestion Ambiental y Desarrollo Sustentable": {
+    "5P01": [["Lunes", 16.0, 20.5]]
+  },
+  "Gestion Ingenieril (Elec.)": {
+    "5P01": [["Lunes", 20.5, 23.5]]
+  },
+  "Ingenieria Sanitaria": {
+    "5P01": [["Jueves", 19.75, 22.75], ["Viernes", 19.0, 20.5]]
+  },
+  "Organizacion y Conduccion de Obras": {
+    "5P01": [["Martes", 16.75, 19.0], ["Viernes", 17.5, 19.0]]
+  }
+}

@@ -1,8 +1,0 @@
-darkdetect
-PyQt5
-pyinstaller
-matplotlib
-ttkbootstrap
-Pillow
-# más dependencias de tu app aquí
-

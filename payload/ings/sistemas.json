@@ -1,0 +1,279 @@
+{
+  "Algebra y Geometria Analitica": {
+    "1K01": [
+      ["Lunes", 10.25, 13.25],
+      ["Martes", 10.25, 12.5],
+      ["Miercoles", 10.25, 11.75]
+    ],
+    "1K02": [
+      ["Lunes", 10.25, 13.25],
+      ["Martes", 8.75, 10.25],
+      ["Viernes", 11.0, 13.25]
+    ],
+    "1K04": [
+      ["Lunes", 10.25, 11.75],
+      ["Martes", 10.25, 13.25],
+      ["Miercoles", 9.5, 11.75]
+    ],
+    "1K13": [
+      ["Martes", 16.75, 19.0],
+      ["Miercoles", 14.5, 16.0],
+      ["Viernes", 14.5, 17.5]
+    ],
+    "1K22": [
+      ["Lunes", 21.25, 23.5],
+      ["Martes", 21.25, 22.75],
+      ["Viernes", 19.0, 22.0]
+    ]
+  },
+  "Analisis Matematico I": {
+    "1K01": [
+      ["Martes", 8.75, 10.25],
+      ["Miercoles", 8.0, 10.25],
+      ["Viernes", 8.0, 11.0]
+    ],
+    "1K02": [
+      ["Martes", 10.25, 12.5],
+      ["Miercoles", 8.0, 11.0],
+      ["Jueves", 10.25, 11.75]
+    ],
+    "1K04": [
+      ["Martes", 8.0, 10.25],
+      ["Miercoles", 11.75, 13.25],
+      ["Viernes", 8.0, 11.0]
+    ],
+    "1K13": [
+      ["Lunes", 14.5, 16.75],
+      ["Miercoles", 16.0, 17.5],
+      ["Jueves", 14.5, 17.5]
+    ],
+    "1K22": [
+      ["Lunes", 19.0, 21.25],
+      ["Miercoles", 19.75, 21.25],
+      ["Jueves", 19.0, 22.0]
+    ]
+  },
+  "Logica y Estructuras Discretas": {
+    "1K01": [
+      ["Lunes", 8.0, 10.25],
+      ["Jueves", 8.0, 10.25]
+    ],
+    "1K02": [
+      ["Lunes", 8.0, 10.25],
+      ["Jueves", 8.0, 10.25]
+    ],
+    "1K03": [["Lunes", 8.0, 12.5]],
+    "1K04": [
+      ["Lunes", 8.0, 10.25],
+      ["Jueves", 8.0, 10.25]
+    ],
+    "1K13": [
+      ["Lunes", 16.75, 19.0],
+      ["Martes", 14.5, 16.75]
+    ],
+    "1K22": [
+      ["Martes", 19.0, 21.25],
+      ["Miercoles", 21.25, 23.5]
+    ]
+  },
+  "Analisis de Sistemas de Informacion": {
+    "2K01": [["Miercoles", 8.0, 12.5]],
+    "2K02": [["Miercoles", 8.0, 12.5]],
+    "2K07": [
+      ["Lunes", 16.75, 19.0],
+      ["Miercoles", 16.75, 19.0]
+    ],
+    "2K08": [
+      ["Lunes", 16.75, 19.0],
+      ["Miercoles", 16.75, 19.0]
+    ],
+    "2K13": [["Miercoles", 19.0, 23.5]],
+    "2K14": [["Miercoles", 19.0, 21.25]]
+  },
+  "Analisis Matematico II": {
+    "2K01": [
+      ["Lunes", 8.0, 10.25],
+      ["Jueves", 8.0, 10.25],
+      ["Viernes", 8.0, 11.0]
+    ],
+    "2K07": [
+      ["Martes", 16.75, 19.0],
+      ["Jueves", 16.0, 19.0],
+      ["Viernes", 16.75, 19.0]
+    ],
+    "2K13": [
+      ["Lunes", 19.0, 22.0],
+      ["Jueves", 19.0, 23.5]
+    ]
+  },
+  "Ingenieria y Sociedad": {
+    "2K01": [
+      ["Martes", 8.75, 10.25],
+      ["Viernes", 11.0, 12.5]
+    ],
+    "2K02": [
+      ["Martes", 8.75, 10.25],
+      ["Viernes", 11.0, 12.5]
+    ],
+    "2K07": [
+      ["Jueves", 14.5, 16.0],
+      ["Viernes", 15.25, 16.75]
+    ],
+    "2K13": [
+      ["Lunes", 22.0, 23.5],
+      ["Martes", 19.0, 20.5]
+    ]
+  },
+  "Ingles I": {
+    "2B-51": [
+      ["Lunes", 9.5, 11.0],
+      ["Miercoles", 9.5, 11.0]
+    ],
+    "2B-56": [
+      ["Martes", 14.5, 16.0],
+      ["Jueves", 14.5, 16.0]
+    ]
+  },
+  "Sintaxis y Semantica de los Lenguajes": {
+    "2K01": [
+      ["Lunes", 10.25, 13.25],
+      ["Jueves", 10.25, 13.25]
+    ],
+    "2K02": [
+      ["Martes", 10.25, 13.25],
+      ["Jueves", 10.25, 13.25]
+    ],
+    "2K07": [
+      ["Lunes", 13.75, 16.75],
+      ["Martes", 13.75, 16.75]
+    ],
+    "2K13": [
+      ["Martes", 20.5, 23.5],
+      ["Viernes", 19.0, 22.0]
+    ]
+  },
+  "Bases de Datos": {
+    "3K09": [
+      ["Lunes", 14.5, 17.5],
+      ["Sabado", 8.0, 11.0]
+    ],
+    "3K10": [
+      ["Lunes", 19.0, 22.0],
+      ["Sabado", 11.0, 14.0]
+    ]
+  },
+  "Comunicacion de Datos": {
+    "3K09": [
+      ["Lunes", 17.5, 19.0],
+      ["Viernes", 14.5, 19.0]
+    ],
+    "3K10": [
+      ["Martes", 21.25, 22.75],
+      ["Miercoles", 20.5, 23.5],
+      ["Viernes", 21.25, 22.75]
+    ]
+  },
+  "Comunicacion Linguistica (Elec.)": {
+    "3K80": [["Lunes", 9.0, 12.0]],
+    "3K81": [["Lunes", 14.0, 17.0]]
+  },
+  "Diseño de Sistemas de Informacion": {
+    "3K09": [["Jueves", 13.75, 18.25]],
+    "3K10": [["Jueves", 19.0, 23.5]],
+    "3K11": [["Lunes", 17.5, 19.0]]
+  },
+  "Economia": {
+    "3K09": [
+      ["Martes", 15.25, 16.75],
+      ["Miercoles", 16.0, 19.0]
+    ],
+    "3K10": [
+      ["Miercoles", 19.0, 20.5],
+      ["Sabado", 8.0, 11.0]
+    ]
+  },
+  "Ingles II": {
+    "3B-61": [
+      ["Miercoles", 11.0, 12.5],
+      ["Viernes", 11.0, 12.5]
+    ],
+    "3B-66": [
+      ["Martes", 20.5, 22.0],
+      ["Jueves", 20.5, 22.0]
+    ]
+  },
+  "Probabilidad y Estadistica": {
+    "3K09": [
+      ["Martes", 16.75, 19.0],
+      ["Miercoles", 13.75, 16.0]
+    ],
+    "3K10": [
+      ["Martes", 19.0, 21.25],
+      ["Viernes", 19.0, 21.25]
+    ]
+  },
+  "Seminario Integrador": {
+    "3K09": [
+      ["Lunes", 21.25, 23.5],
+      ["Jueves", 19.0, 22.75]
+    ],
+    "3K10": [
+      ["Lunes", 16.0, 19.0],
+      ["Jueves", 13.75, 16.75]
+    ]
+  },
+  "Administracion de Sistemas de Informacion": {
+    "4K09": [["Miercoles", 14.5, 19.0]],
+    "4K10": [["Jueves", 19.0, 23.5]]
+  },
+  "Ingenieria y Calidad de Software": {
+    "4K09": [["Jueves", 16.75, 19.0]],
+    "4K10": [["Lunes", 19.0, 21.25]]
+  },
+  "Investigacion Operativa": {
+    "4K09": [
+      ["Martes", 17.5, 19.0],
+      ["Viernes", 14.5, 19.0]
+    ],
+    "4K10": [
+      ["Martes", 19.0, 20.5],
+      ["Viernes", 19.0, 23.5]
+    ]
+  },
+  "Legislacion": {
+    "4K09": [["Lunes", 14.5, 17.5]],
+    "4K10": [["Martes", 20.5, 23.5]]
+  },
+  "Simulacion": {
+    "4K09": [
+      ["Martes", 14.5, 16.75],
+      ["Jueves", 14.5, 16.75]
+    ],
+    "4K10": [["Miercoles", 19.0, 23.5]]
+  },
+  "Gestion Gerencial": {
+    "5K09": [["Lunes", 14.5, 19.0]],
+    "5K10": [["Lunes", 19.0, 23.5]]
+  },
+  "Proyecto Final": {
+    "5K09": [["Martes", 14.5, 19.0]],
+    "5K10": [["Martes", 19.0, 23.5]]
+  },
+  "Seguridad en los Sistemas de Informacion": {
+    "5K09": [["Viernes", 14.5, 19.0]],
+    "5K10": [["Viernes", 19.0, 23.5]]
+  },
+  "Seguridad en Redes (Elec.)": {
+    "5K09": [["Jueves", 14.5, 16.0]]
+  },
+  "Sistemas de Gestion": {
+    "5K09": [
+      ["Miercoles", 16.0, 19.0],
+      ["Jueves", 16.0, 19.0]
+    ],
+    "5K10": [
+      ["Miercoles", 19.0, 22.0],
+      ["Jueves", 19.0, 22.0]
+    ]
+  }
+}

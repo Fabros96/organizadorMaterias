@@ -1,0 +1,145 @@
+{
+  "Algebra y Geometria Analitica": {
+    "1R11": [["Martes", 16.0, 19.0], ["Miercoles", 16.75, 19.0], ["Jueves", 17.5, 19.0]],
+    "1R20": [["Martes", 20.5, 23.5], ["Miercoles", 19.0, 21.25], ["Jueves", 19.0, 20.5]]
+  },
+  "Analisis Matematico I": {
+    "1R11": [["Lunes", 14.5, 17.5], ["Jueves", 13.75, 17.5]],
+    "1R20": [["Lunes", 20.5, 23.5], ["Martes", 19.0, 20.5], ["Jueves", 20.5, 22.75]]
+  },
+  "Comunicacion Linguistica (Elec.)": {
+    "1R80": [["Lunes", 9.0, 12.0]],
+    "1R81": [["Lunes", 14.0, 17.0]]
+  },
+  "Diseño Asistido por Computadora": {
+    "1RIV2": [["Martes", 17.25, 19.5], ["Miercoles", 14.0, 16.25]]
+  },
+  "Informatica I": {
+    "1R11": [["Lunes", 17.5, 19.0], ["Miercoles", 14.5, 16.75]],
+    "1R20": [["Lunes", 19.0, 20.5], ["Miercoles", 21.25, 23.5]],
+    "1RIV2": [["Lunes", 11.25, 12.75], ["Miercoles", 16.5, 19.5], ["Viernes", 9.5, 12.5]]
+  },
+  "Ingenieria y Sociedad": {
+    "1R20": [["Viernes", 19.0, 22.0]]
+  },
+  "Analisis de Señales y Sistemas": {
+    "2R05": [["Martes", 14.5, 16.75], ["Jueves", 14.5, 16.75]],
+    "2R11": [["Martes", 21.25, 23.5], ["Jueves", 21.25, 23.5]]
+  },
+  "Fisica II": {
+    "2R05": [["Martes", 16.75, 19.0], ["Miercoles", 14.5, 16.75], ["Jueves", 16.75, 19.75]],
+    "2R11": [["Lunes", 21.25, 23.5], ["Miercoles", 21.25, 23.5], ["Jueves", 18.25, 21.25]]
+  },
+  "Informatica II": {
+    "2R05": [["Miercoles", 16.75, 19.0], ["Viernes", 17.5, 19.0]],
+    "2R11": [["Miercoles", 19.0, 21.25], ["Viernes", 19.0, 20.5]]
+  },
+  "Ingles I": {
+    "2B-50": [["Lunes", 8.0, 9.5], ["Miercoles", 8.0, 9.5]],
+    "2B-55": [["Lunes", 14.5, 16.0], ["Miercoles", 14.5, 16.0]]
+  },
+  "Quimica General": {
+    "2R05": [["Lunes", 14.5, 19.0], ["Viernes", 14.5, 17.5]],
+    "2R11": [["Lunes", 19.0, 21.25], ["Martes", 19.0, 21.25], ["Viernes", 20.5, 23.5]]
+  },
+  "Dispositivos Electronicos": {
+    "3R05": [["Martes", 21.25, 23.5], ["Miercoles", 19.0, 21.25], ["Jueves", 19.0, 22.0]],
+    "3R08": [["Martes", 16.75, 19.0], ["Miercoles", 16.75, 19.0], ["Jueves", 14.5, 17.5]]
+  },
+  "Ingles II": {
+    "3B-60": [["Martes", 9.5, 11.0], ["Jueves", 9.5, 11.0]],
+    "3B-65": [["Lunes", 19.0, 20.5], ["Miercoles", 19.0, 20.5]]
+  },
+  "Legislacion": {
+    "3R05": [["Miercoles", 21.25, 22.75], ["Jueves", 22.0, 23.5]],
+    "3R08": [["Miercoles", 15.25, 16.75], ["Jueves", 17.5, 19.0]]
+  },
+  "Seguridad, Higiene y Medio Ambiente": {
+    "3R05": [["Lunes", 21.25, 22.75], ["Viernes", 22.0, 23.5]],
+    "3R08": [["Lunes", 16.75, 18.25], ["Viernes", 17.5, 19.0]]
+  },
+  "Tecnicas Digitales I": {
+    "3R05": [["Viernes", 19.0, 22.0]],
+    "3R08": [["Viernes", 14.5, 17.5]]
+  },
+  "Teoria de los Circuitos I": {
+    "3R05": [["Lunes", 19.0, 21.25], ["Martes", 19.0, 21.25]],
+    "3R08": [["Lunes", 14.5, 16.75], ["Martes", 14.5, 16.75]]
+  },
+  "Electronica Aplicada II": {
+    "4R05": [["Martes", 19.0, 21.25], ["Miercoles", 19.0, 20.5]],
+    "4R07": [["Miercoles", 16.75, 19.0], ["Viernes", 15.25, 16.75]]
+  },
+  "Maquinas e Instalaciones Electricas": {
+    "4R05": [["Lunes", 19.0, 22.0]],
+    "4R07": [["Lunes", 16.0, 19.0]]
+  },
+  "Medidas Electronicas I": {
+    "4R05": [["Jueves", 19.0, 21.25], ["Viernes", 20.5, 22.0]],
+    "4R07": [["Martes", 16.0, 18.25], ["Jueves", 16.0, 17.5]]
+  },
+  "Sistemas de Comunicaciones": {
+    "4R05": [["Martes", 21.25, 22.75], ["Viernes", 22.0, 23.5]],
+    "4R07": [["Martes", 14.5, 16.0], ["Jueves", 14.5, 16.0]]
+  },
+  "Tecnicas Digitales II": {
+    "4R05": [["Lunes", 22.0, 23.5], ["Miercoles", 20.5, 22.75]],
+    "4R07": [["Miercoles", 14.5, 16.75], ["Jueves", 17.5, 19.0]]
+  },
+  "Teoria de los Circuitos II": {
+    "4R05": [["Jueves", 21.25, 23.5], ["Viernes", 19.0, 20.5]],
+    "4R07": [["Lunes", 14.5, 16.0], ["Viernes", 16.75, 19.0]]
+  },
+  "Electronica Aplicada III": {
+    "5R04": [["Miercoles", 19.0, 21.25], ["Jueves", 20.5, 22.0]],
+    "5R05": [["Miercoles", 21.25, 23.5], ["Jueves", 19.0, 20.5]]
+  },
+  "Electronica de Potencia": {
+    "5R04": [["Martes", 21.25, 22.75], ["Viernes", 22.0, 23.5]],
+    "5R05": [["Martes", 19.75, 21.25], ["Viernes", 22.0, 23.5]]
+  },
+  "Introduccion a los Sistemas de Gestion Gerencial (Elec.)": {
+    "5R04": [["Lunes", 16.0, 19.0]]
+  },
+  "Medidas Electronicas II": {
+    "5R04": [["Lunes", 21.25, 23.5], ["Jueves", 22.0, 23.5]],
+    "5R05": [["Lunes", 19.0, 21.25], ["Jueves", 20.5, 22.0]]
+  },
+  "Organizacion Industrial": {
+    "5R04": [["Jueves", 17.5, 19.0]],
+    "5R05": [["Miercoles", 18.25, 19.75]]
+  },
+  "Sistemas de Control": {
+    "5R04": [["Viernes", 19.0, 22.0]],
+    "5R05": [["Viernes", 19.0, 22.0]]
+  },
+  "Tecnicas Digitales III": {
+    "5R04": [["Martes", 19.0, 21.25], ["Jueves", 19.0, 20.5]],
+    "5R05": [["Martes", 21.25, 23.5], ["Jueves", 22.0, 23.5]]
+  },
+  "Tecnologia Electronica": {
+    "5R04": [["Lunes", 19.0, 21.25], ["Miercoles", 21.25, 22.75]],
+    "5R05": [["Lunes", 21.25, 23.5], ["Miercoles", 19.75, 21.25]]
+  },
+  "Economia": {
+    "6R1": [["Lunes", 17.5, 19.0], ["Martes", 16.0, 19.0]]
+  },
+  "Electronica Industrial (Elec.)": {
+    "6R1": [["Lunes", 19.0, 23.5]]
+  },
+  "Protecciones Digitales y Telecontrol (Elec.)": {
+    "6R2": [["Lunes", 19.0, 23.5]]
+  },
+  "Proyecto Final": {
+    "6R1": [["Miercoles", 19.0, 23.5]]
+  },
+  "Redes de Comunicaciones Moviles (Elec.)": {
+    "6R1": [["Jueves", 18.0, 22.5]]
+  },
+  "Redes de Datos (Elec.)": {
+    "6R1": [["Viernes", 19.0, 23.5]]
+  },
+  "Sistemas de Comunicaciones II (Elec.)": {
+    "6R3": [["Lunes", 19.0, 23.5]]
+  }
+}
