@@ -1,127 +1,697 @@
 {
-  "Algebra y Geometria Analitica": {
-    "1V12": [["Martes", 14.5, 16.0], ["Jueves", 15.25, 17.5], ["Viernes", 14.5, 17.5]],
-    "1V21": [["Lunes", 21.25, 23.5], ["Martes", 19.0, 22.0], ["Miercoles", 19.0, 20.5]]
+  "Álgebra y Geometría Analítica": {
+    "1V12": [
+      [
+        "Martes",
+        14.5,
+        16.0
+      ],
+      [
+        "Jueves",
+        15.25,
+        17.5
+      ],
+      [
+        "Viernes",
+        14.5,
+        17.5
+      ]
+    ],
+    "1V21": [
+      [
+        "Lunes",
+        21.25,
+        23.5
+      ],
+      [
+        "Martes",
+        19.0,
+        22.0
+      ],
+      [
+        "Miércoles",
+        19.0,
+        20.5
+      ]
+    ],
+    "Año": 1
   },
-  "Analisis Matematico I": {
-    "1V12": [["Lunes", 16.0, 19.0], ["Miercoles", 14.5, 16.75], ["Jueves", 17.5, 19.0]],
-    "1V21": [["Lunes", 19.0, 20.5], ["Miercoles", 20.5, 23.5], ["Jueves", 19.0, 21.25]]
+  "Análisis Matemático I": {
+    "1V12": [
+      [
+        "Lunes",
+        16.0,
+        19.0
+      ],
+      [
+        "Miércoles",
+        14.5,
+        16.75
+      ],
+      [
+        "Jueves",
+        17.5,
+        19.0
+      ]
+    ],
+    "1V21": [
+      [
+        "Lunes",
+        19.0,
+        20.5
+      ],
+      [
+        "Miércoles",
+        20.5,
+        23.5
+      ],
+      [
+        "Jueves",
+        19.0,
+        21.25
+      ]
+    ],
+    "Año": 1
   },
-  "Comunicacion Linguistica (Elec.)": {
-    "1V80": [["Lunes", 9.0, 12.0]],
-    "1V81": [["Lunes", 14.0, 17.0]]
+  "Comunicación Lingüística (Elec.)": {
+    "1V80": [
+      [
+        "Lunes",
+        9.0,
+        12.0
+      ]
+    ],
+    "1V81": [
+      [
+        "Lunes",
+        14.0,
+        17.0
+      ]
+    ],
+    "Año": "E"
   },
-  "Fundamentos de Informatica": {
-    "1RIV3": [["Miercoles", 16.5, 19.5]]
+  "Fundamentos de Informática": {
+    "1RIV3": [
+      [
+        "Miércoles",
+        16.5,
+        19.5
+      ]
+    ],
+    "Año": 1
   },
-  "Ingenieria y Sociedad": {
-    "1V12": [["Martes", 16.0, 19.0]],
-    "1V21": [["Viernes", 19.0, 22.0]]
+  "Ingeniería y Sociedad": {
+    "1V12": [
+      [
+        "Martes",
+        16.0,
+        19.0
+      ]
+    ],
+    "1V21": [
+      [
+        "Viernes",
+        19.0,
+        22.0
+      ]
+    ],
+    "Año": 1
   },
-  "Introduccion a la Ingenieria Quimica": {
-    "1RIV3": [["Lunes", 17.25, 19.5]],
-    "1V12": [["Viernes", 16.75, 19.0]],
-    "1V21": [["Lunes", 20.5, 21.25], ["Viernes", 22.0, 23.5]]
+  "Introducción a la Ingeniería Química": {
+    "1RIV3": [
+      [
+        "Lunes",
+        17.25,
+        19.5
+      ]
+    ],
+    "1V12": [
+      [
+        "Viernes",
+        16.75,
+        19.0
+      ]
+    ],
+    "1V21": [
+      [
+        "Lunes",
+        20.5,
+        21.25
+      ],
+      [
+        "Viernes",
+        22.0,
+        23.5
+      ]
+    ],
+    "Año": 1
   },
-  "Sistemas de Representacion": {
-    "1RIV3": [["Martes", 17.25, 19.5], ["Miercoles", 10.5, 12.75], ["Miercoles", 14.0, 16.25], ["Jueves", 8.0, 10.25]],
-    "1V12": [["Lunes", 14.5, 16.0]],
-    "1V21": [["Jueves", 19.0, 20.5]]
+  "Sistemas de Representación": {
+    "1RIV3": [
+      [
+        "Martes",
+        17.25,
+        19.5
+      ],
+      [
+        "Miércoles",
+        10.5,
+        12.75
+      ],
+      [
+        "Miércoles",
+        14.0,
+        16.25
+      ],
+      [
+        "Jueves",
+        8.0,
+        10.25
+      ]
+    ],
+    "1V12": [
+      [
+        "Lunes",
+        14.5,
+        16.0
+      ]
+    ],
+    "1V21": [
+      [
+        "Jueves",
+        19.0,
+        20.5
+      ]
+    ],
+    "Año": 1
   },
-  "Analisis Matematico II": {
-    "2V06": [["Miercoles", 13.75, 16.75], ["Jueves", 13.75, 15.25], ["Viernes", 13.75, 16.75]],
-    "2V12": [["Lunes", 21.25, 23.5], ["Martes", 20.5, 23.5], ["Miercoles", 21.25, 23.5]]
+  "Análisis Matemático II": {
+    "2V06": [
+      [
+        "Miércoles",
+        13.75,
+        16.75
+      ],
+      [
+        "Jueves",
+        13.75,
+        15.25
+      ],
+      [
+        "Viernes",
+        13.75,
+        16.75
+      ]
+    ],
+    "2V12": [
+      [
+        "Lunes",
+        21.25,
+        23.5
+      ],
+      [
+        "Martes",
+        20.5,
+        23.5
+      ],
+      [
+        "Miércoles",
+        21.25,
+        23.5
+      ]
+    ],
+    "Año": 2
   },
-  "Ingles I": {
-    "2B-53": [["Lunes", 16.0, 17.5], ["Miercoles", 16.0, 17.5]],
-    "2B-58": [["Martes", 19.0, 20.5], ["Jueves", 19.0, 20.5]]
+  "Inglés I": {
+    "2B-53": [
+      [
+        "Lunes",
+        16.0,
+        17.5
+      ],
+      [
+        "Miércoles",
+        16.0,
+        17.5
+      ]
+    ],
+    "2B-58": [
+      [
+        "Martes",
+        19.0,
+        20.5
+      ],
+      [
+        "Jueves",
+        19.0,
+        20.5
+      ]
+    ],
+    "Año": 2
   },
-  "Introduccion a Equipos y Procesos": {
-    "2V06": [["Miercoles", 16.75, 19.0]],
-    "2V12": [["Miercoles", 19.0, 21.25]]
+  "Introducción a Equipos y Procesos": {
+    "2V06": [
+      [
+        "Miércoles",
+        16.75,
+        19.0
+      ]
+    ],
+    "2V12": [
+      [
+        "Miércoles",
+        19.0,
+        21.25
+      ]
+    ],
+    "Año": 2
   },
-  "Probabilidad y Estadistica": {
-    "2V06": [["Martes", 14.5, 16.75], ["Sabado", 9.0, 11.25]],
-    "2V12": [["Viernes", 21.25, 23.5], ["Sabado", 11.25, 13.5]]
+  "Probabilidad y Estadística": {
+    "2V06": [
+      [
+        "Martes",
+        14.5,
+        16.75
+      ],
+      [
+        "Sabado",
+        9.0,
+        11.25
+      ]
+    ],
+    "2V12": [
+      [
+        "Viernes",
+        21.25,
+        23.5
+      ],
+      [
+        "Sabado",
+        11.25,
+        13.5
+      ]
+    ],
+    "Año": 2
   },
-  "Quimica Inorganica": {
-    "2V06": [["Lunes", 16.0, 19.0], ["Jueves", 15.25, 18.25]],
-    "2V12": [["Lunes", 19.0, 21.25], ["Jueves", 19.0, 22.75]]
+  "Química Inorgánica": {
+    "2V06": [
+      [
+        "Lunes",
+        16.0,
+        19.0
+      ],
+      [
+        "Jueves",
+        15.25,
+        18.25
+      ]
+    ],
+    "2V12": [
+      [
+        "Lunes",
+        19.0,
+        21.25
+      ],
+      [
+        "Jueves",
+        19.0,
+        22.75
+      ]
+    ],
+    "Año": 2
   },
-  "Quimica Organica": {
-    "2V06": [["Martes", 17.5, 19.0], ["Viernes", 16.75, 19.0]],
-    "2V12": [["Martes", 19.0, 20.5], ["Viernes", 19.0, 21.25]]
+  "Química Orgánica": {
+    "2V06": [
+      [
+        "Martes",
+        17.5,
+        19.0
+      ],
+      [
+        "Viernes",
+        16.75,
+        19.0
+      ]
+    ],
+    "2V12": [
+      [
+        "Martes",
+        19.0,
+        20.5
+      ],
+      [
+        "Viernes",
+        19.0,
+        21.25
+      ]
+    ],
+    "Año": 2
   },
-  "Balances de Masa y Energia": {
-    "3V6": [["Jueves", 13.75, 16.0]],
-    "3V7": [["Viernes", 18.25, 20.5]]
+  "Balances de Masa y Energía": {
+    "3V6": [
+      [
+        "Jueves",
+        13.75,
+        16.0
+      ]
+    ],
+    "3V7": [
+      [
+        "Viernes",
+        18.25,
+        20.5
+      ]
+    ],
+    "Año": 3
   },
-  "Ingles II": {
-    "3B-63": [["Lunes", 17.5, 19.0], ["Miercoles", 17.5, 19.0]]
+  "Inglés II": {
+    "3B-63": [
+      [
+        "Lunes",
+        17.5,
+        19.0
+      ],
+      [
+        "Miércoles",
+        17.5,
+        19.0
+      ]
+    ],
+    "Año": 3
   },
-  "Matematica Superior Aplicada": {
-    "3V6": [["Lunes", 15.25, 17.5], ["Viernes", 13.75, 16.0]],
-    "3V7": [["Miercoles", 21.25, 23.5], ["Jueves", 21.25, 23.5]]
+  "Matemática Superior Aplicada": {
+    "3V6": [
+      [
+        "Lunes",
+        15.25,
+        17.5
+      ],
+      [
+        "Viernes",
+        13.75,
+        16.0
+      ]
+    ],
+    "3V7": [
+      [
+        "Miércoles",
+        21.25,
+        23.5
+      ],
+      [
+        "Jueves",
+        21.25,
+        23.5
+      ]
+    ],
+    "Año": 3
   },
-  "Microbiologia y Quimica Biologica": {
-    "3V6": [["Martes", 13.75, 16.0], ["Jueves", 16.75, 19.0]],
-    "3V7": [["Miercoles", 19.0, 21.25], ["Viernes", 21.25, 23.5]]
+  "Microbiología y Química Biológica": {
+    "3V6": [
+      [
+        "Martes",
+        13.75,
+        16.0
+      ],
+      [
+        "Jueves",
+        16.75,
+        19.0
+      ]
+    ],
+    "3V7": [
+      [
+        "Miércoles",
+        19.0,
+        21.25
+      ],
+      [
+        "Viernes",
+        21.25,
+        23.5
+      ]
+    ],
+    "Año": 3
   },
-  "Quimica Analitica": {
-    "3V6": [["Lunes", 17.5, 19.0], ["Miercoles", 17.5, 19.0], ["Viernes", 16.0, 19.0]],
-    "3V7": [["Lunes", 19.0, 20.5], ["Martes", 22.0, 23.5], ["Jueves", 18.25, 21.25]]
+  "Química Analítica": {
+    "3V6": [
+      [
+        "Lunes",
+        17.5,
+        19.0
+      ],
+      [
+        "Miércoles",
+        17.5,
+        19.0
+      ],
+      [
+        "Viernes",
+        16.0,
+        19.0
+      ]
+    ],
+    "3V7": [
+      [
+        "Lunes",
+        19.0,
+        20.5
+      ],
+      [
+        "Martes",
+        22.0,
+        23.5
+      ],
+      [
+        "Jueves",
+        18.25,
+        21.25
+      ]
+    ],
+    "Año": 3
   },
-  "Termodinamica": {
-    "3V6": [["Martes", 16.0, 19.0], ["Miercoles", 14.5, 17.5]],
-    "3V7": [["Lunes", 20.5, 23.5], ["Martes", 19.0, 22.0]]
+  "Termodinámica": {
+    "3V6": [
+      [
+        "Martes",
+        16.0,
+        19.0
+      ],
+      [
+        "Miércoles",
+        14.5,
+        17.5
+      ]
+    ],
+    "3V7": [
+      [
+        "Lunes",
+        20.5,
+        23.5
+      ],
+      [
+        "Martes",
+        19.0,
+        22.0
+      ]
+    ],
+    "Año": 3
   },
-  "Calidad y Control Estadistico de Procesos": {
-    "4V6": [["Lunes", 17.5, 19.0], ["Jueves", 20.5, 23.5]]
+  "Calidad y Control Estadístico de Procesos": {
+    "4V6": [
+      [
+        "Lunes",
+        17.5,
+        19.0
+      ],
+      [
+        "Jueves",
+        20.5,
+        23.5
+      ]
+    ],
+    "Año": 4
   },
-  "Diseño, Simulacion, Optimizacion y Seguridad de Procesos": {
-    "4V6": [["Viernes", 17.5, 20.5]]
+  "Diseño, Simulación, Optimización y Seguridad de Procesos": {
+    "4V6": [
+      [
+        "Viernes",
+        17.5,
+        20.5
+      ]
+    ],
+    "Año": 4
   },
-  "Economia": {
-    "4V6": [["Lunes", 16.0, 17.5], ["Martes", 16.0, 19.0]]
+  "Economía": {
+    "4V6": [
+      [
+        "Lunes",
+        16.0,
+        17.5
+      ],
+      [
+        "Martes",
+        16.0,
+        19.0
+      ]
+    ],
+    "Año": 4
   },
-  "Ingenieria de las Reacciones Quimicas": {
-    "4V6": [["Lunes", 17.5, 21.25]]
+  "Ingeniería de las Reacciones Químicas": {
+    "4V6": [
+      [
+        "Lunes",
+        17.5,
+        21.25
+      ]
+    ],
+    "Año": 4
   },
   "Operaciones Unitarias I": {
-    "4V6": [["Jueves", 17.5, 21.25]]
+    "4V6": [
+      [
+        "Jueves",
+        17.5,
+        21.25
+      ]
+    ],
+    "Año": 4
   },
-  "Tecnologia de la Energia Termica": {
-    "4V6": [["Martes", 19.0, 23.5], ["Viernes", 20.5, 23.5]]
+  "Tecnología de la Energía Térmica": {
+    "4V6": [
+      [
+        "Martes",
+        19.0,
+        23.5
+      ],
+      [
+        "Viernes",
+        20.5,
+        23.5
+      ]
+    ],
+    "Año": 4
   },
-  "Utilitarios de Computacion (Elec.)": {
-    "4V6": [["Jueves", 17.5, 20.5]]
+  "Utilitarios de Computación (Elec.)": {
+    "4V6": [
+      [
+        "Jueves",
+        17.5,
+        20.5
+      ]
+    ],
+    "Año": "E"
   },
-  "Control Automatico de Procesos": {
-    "5V6": [["Martes", 18.25, 21.25]]
+  "Control Automático de Procesos": {
+    "5V6": [
+      [
+        "Martes",
+        18.25,
+        21.25
+      ]
+    ],
+    "Año": 5
   },
-  "Gestion Empresarial I (Elec.)": {
-    "5V6": [["Lunes", 16.0, 19.0]]
+  "Gestión Empresarial I (Elec.)": {
+    "5V6": [
+      [
+        "Lunes",
+        16.0,
+        19.0
+      ]
+    ],
+    "Año": "E"
   },
-  "Industrializacion de Hidrocarburos (Elec.)": {
-    "5V6": [["Miercoles", 16.0, 18.25]]
+  "Industrialización de Hidrocarburos (Elec.)": {
+    "5V6": [
+      [
+        "Miércoles",
+        16.0,
+        18.25
+      ]
+    ],
+    "Año": "E"
   },
   "Industrias Alimentarias (Elec.)": {
-    "5V6": [["Jueves", 15.25, 19.75]]
+    "5V6": [
+      [
+        "Jueves",
+        15.25,
+        19.75
+      ]
+    ],
+    "Año": "E"
   },
-  "Industrias de Base Extractiva - Extraccion, Fraccionamiento y Refinacion (Elec.)": {
-    "5V6": [["Miercoles", 19.0, 21.25], ["Viernes", 19.0, 21.25]]
+  "Industrias de Base Extractiva - Extracción, Fraccionamiento y Refinación (Elec.)": {
+    "5V6": [
+      [
+        "Miércoles",
+        19.0,
+        21.25
+      ],
+      [
+        "Viernes",
+        19.0,
+        21.25
+      ]
+    ],
+    "Año": "E"
   },
-  "Ingenieria Ambiental": {
-    "5V6": [["Jueves", 19.0, 21.25]]
+  "Ingeniería Ambiental": {
+    "5V6": [
+      [
+        "Jueves",
+        19.0,
+        21.25
+      ]
+    ],
+    "Año": 5
   },
-  "Instalaciones de Maquinas Termicas y Fluidodinamicas (Elec.)": {
-    "5V7": [["Lunes", 21.25, 23.5]]
+  "Instalaciones de Máquinas Térmicas y Fluidodinámicas (Elec.)": {
+    "5V7": [
+      [
+        "Lunes",
+        21.25,
+        23.5
+      ]
+    ],
+    "Año": "E"
   },
-  "Mecanica Industrial": {
-    "5V6": [["Miercoles", 21.25, 23.5], ["Viernes", 21.25, 23.5]]
+  "Mecánica Industrial": {
+    "5V6": [
+      [
+        "Miércoles",
+        21.25,
+        23.5
+      ],
+      [
+        "Viernes",
+        21.25,
+        23.5
+      ]
+    ],
+    "Año": 5
   },
   "Proyecto Final": {
-    "5V6": [["Lunes", 19.0, 22.0]],
-    "5V7": [["Martes", 14.5, 16.0], ["Jueves", 14.5, 16.0]]
+    "5V6": [
+      [
+        "Lunes",
+        19.0,
+        22.0
+      ]
+    ],
+    "5V7": [
+      [
+        "Martes",
+        14.5,
+        16.0
+      ],
+      [
+        "Jueves",
+        14.5,
+        16.0
+      ]
+    ],
+    "Año": 5
   }
 }

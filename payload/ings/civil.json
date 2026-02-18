@@ -1,135 +1,299 @@
 {
-  "Algebra y Geometria Analitica": {
-    "1P09": [["Lunes", 16.0, 19.0], ["Miercoles", 13.75, 16.0], ["Jueves", 14.5, 16.0]],
-    "1P18": [["Jueves", 20.5, 23.5], ["Viernes", 19.0, 22.75]],
-    "1P99": [["Miercoles", 8.0, 10.25], ["Jueves", 8.0, 9.5], ["Viernes", 8.0, 11.0]]
+  "Análisis Matemático I": {
+    "1P09": [["Lunes", 14.5, 16.0], ["Jueves", 16.0, 18.25], ["Viernes", 14.5, 17.5], ["Cursado", "A"]],
+    "1P18": [["Lunes", 19.0, 21.25], ["Miércoles", 20.5, 23.5], ["Jueves", 19.0, 20.5], ["Cursado", "A"]],
+    "1P99": [["Martes", 12.5, 14.0], ["Miércoles", 10.25, 13.25], ["Viernes", 11.0, 13.25], ["Cursado", "A"]],
+    "NumeroMat": 1,
+    "Año": 1,
+    "pCursar": [],
+    "pRendir": []
   },
-  "Analisis Matematico I": {
-    "1P09": [["Lunes", 14.5, 16.0], ["Jueves", 16.0, 18.25], ["Viernes", 14.5, 17.5]],
-    "1P18": [["Lunes", 19.0, 21.25], ["Miercoles", 20.5, 23.5], ["Jueves", 19.0, 20.5]],
-    "1P99": [["Martes", 12.5, 14.0], ["Miercoles", 10.25, 13.25], ["Viernes", 11.0, 13.25]]
+  "Álgebra y Geometría Analítica": {
+    "1P09": [["Lunes", 16.0, 19.0], ["Miércoles", 13.75, 16.0], ["Jueves", 14.5, 16.0], ["Cursado", "A"]],
+    "1P18": [["Jueves", 20.5, 23.5], ["Viernes", 19.0, 22.75], ["Cursado", "A"]],
+    "1P99": [["Miércoles", 8.0, 10.25], ["Jueves", 8.0, 9.5], ["Viernes", 8.0, 11.0], ["Cursado", "A"]],
+    "NumeroMat": 2,
+    "Año": 1,
+    "pCursar": [],
+    "pRendir": []
   },
-  "Comunicacion Linguistica (Elec.)": {
-    "1P80": [["Lunes", 9.0, 12.0]],
-    "1P81": [["Lunes", 14.0, 17.0]]
+  "Ingeniería y Sociedad": {
+    "1P09": [["Miércoles", 16.0, 19.0], ["Cursado", "A"]],
+    "1P18": [["Lunes", 21.25, 22.75], ["Miércoles", 19.0, 20.5], ["Cursado", "A"]],
+    "1P99": [["Lunes", 9.5, 12.5], ["Cursado", "A"]],
+    "NumeroMat": 3,
+    "Año": 1,
+    "pCursar": [],
+    "pRendir": []
   },
-  "Fisica I": {
-    "1P90": [["Lunes", 14.5, 16.0], ["Martes", 14.5, 17.5], ["Miercoles", 14.5, 17.5]]
+  "Ingeniería Civil I": {
+    "1P09": [["Martes", 14.5, 16.75], ["Cursado", "A"]],
+    "1P18": [["Martes", 19.0, 21.25], ["Cursado", "A"]],
+    "1P99": [["Martes", 10.25, 12.42], ["Cursado", "A"]],
+    "1RIV4": [["Lunes", 17.25, 19.5], ["Cursado", "A"]],
+    "NumeroMat": 4,
+    "Año": 1,
+    "pCursar": [],
+    "pRendir": []
   },
-  "Fundamentos de Informatica": {
-    "1P09": [["Miercoles", 19.0, 20.5]],
-    "1P18": [["Miercoles", 17.5, 19.0]],
-    "1RIV4": [["Miercoles", 16.5, 19.5]]
+  "Sistemas de Representación": {
+    "1P09": [["Martes", 16.75, 19.0], ["Cursado", "A"]],
+    "1P18": [["Martes", 21.25, 23.5], ["Cursado", "A"]],
+    "1P99": [["Martes", 8.0, 10.25], ["Cursado", "A"]],
+    "1RIV4": [["Martes", 17.25, 19.5], ["Miércoles", 10.5, 12.75], ["Miércoles", 14.0, 16.25], ["Jueves", 8.0, 10.25], ["Cursado", "A"]],
+    "NumeroMat": 5,
+    "Año": 1,
+    "pCursar": [],
+    "pRendir": []
   },
-  "Ingenieria Civil I": {
-    "1P09": [["Martes", 14.5, 16.75]],
-    "1P18": [["Martes", 19.0, 21.25]],
-    "1P99": [["Martes", 10.25, 12.42]],
-    "1RIV4": [["Lunes", 17.25, 19.5]]
+  "Fundamentos de Informática": {
+    "1P09": [["Miércoles", 19.0, 20.5], ["Cursado", "A"]],
+    "1P18": [["Miércoles", 17.5, 19.0], ["Cursado", "A"]],
+    "1RIV4": [["Miércoles", 16.5, 19.5], ["Cursado", "A"]],
+    "NumeroMat": 8,
+    "Año": 1,
+    "pCursar": [],
+    "pRendir": []
   },
-  "Ingenieria y Sociedad": {
-    "1P09": [["Miercoles", 16.0, 19.0]],
-    "1P18": [["Lunes", 21.25, 22.75], ["Miercoles", 19.0, 20.5]],
-    "1P99": [["Lunes", 9.5, 12.5]]
+  "Comunicación Lingüística (Elec.)": {
+    "1P80": [["Lunes", 9.0, 12.0], ["Cursado", "A"]],
+    "1P81": [["Lunes", 14.0, 17.0], ["Cursado", "A"]],
+    "NumeroMat": 0,
+    "Año": "E",
+    "pCursar": [],
+    "pRendir": []
   },
-  "Sistemas de Representacion": {
-    "1P09": [["Martes", 16.75, 19.0]],
-    "1P18": [["Martes", 21.25, 23.5]],
-    "1P99": [["Martes", 8.0, 10.25]],
-    "1RIV4": [["Martes", 17.25, 19.5], ["Miercoles", 10.5, 12.75], ["Miercoles", 14.0, 16.25], ["Jueves", 8.0, 10.25]]
+  "Física I": {
+    "1P90": [["Lunes", 14.5, 16.0], ["Martes", 14.5, 17.5], ["Miércoles", 14.5, 17.5], ["Cursado", "A"]],
+    "NumeroMat": 7,
+    "Año": 1,
+    "pCursar": [],
+    "pRendir": []
   },
-  "Analisis Matematico II": {
-    "2P03": [["Lunes", 14.5, 16.75], ["Jueves", 16.0, 17.5]],
-    "2P09": [["Miercoles", 20.5, 22.75], ["Viernes", 21.25, 22.75]]
+  "Ingeniería Civil II": {
+    "2P03": [["Viernes", 16.75, 19.0], ["Cursado", "A"]],
+    "2P09": [["Martes", 19.0, 21.25], ["Cursado", "A"]],
+    "NumeroMat": 11,
+    "Año": 2,
+    "pCursar": [3, 4, 5, 8],
+    "pRendir": []
+  },
+  "Análisis Matemático II": {
+    "2P03": [["Lunes", 14.5, 16.75], ["Jueves", 16.0, 17.5], ["Cursado", "A"]],
+    "2P09": [["Miércoles", 20.5, 22.75], ["Viernes", 21.25, 22.75], ["Cursado", "A"]],
+    "NumeroMat": 9,
+    "Año": 2,
+    "pCursar": [1, 2],
+    "pRendir": []
+  },
+  "Tecnología de los Materiales": {
+    "2P03": [["Miércoles", 14.5, 16.0], ["Jueves", 17.5, 19.0], ["Cursado", "A"]],
+    "2P09": [["Martes", 21.25, 22.75], ["Jueves", 19.0, 20.5], ["Cursado", "A"]],
+    "2P31": [["Jueves", 14.0, 16.5], ["Cursado", "A"]],
+    "NumeroMat": 12,
+    "Año": 2,
+    "pCursar": [1, 5, 6, 7],
+    "pRendir": []
   },
   "Estabilidad": {
-    "2P03": [["Lunes", 14.5, 19.0], ["Jueves", 14.5, 17.5]],
-    "2P09": [["Lunes", 19.0, 23.5], ["Miercoles", 19.0, 22.0]]
+    "2P03": [["Lunes", 14.5, 19.0], ["Jueves", 14.5, 17.5], ["Cursado", "1"]],
+    "2P09": [["Lunes", 19.0, 23.5], ["Miércoles", 19.0, 22.0], ["Cursado", "1"]],
+    "NumeroMat": 10,
+    "Año": 2,
+    "pCursar": [1, 2, 5, 7, 8],
+    "pRendir": []
   },
-  "Ingenieria Civil II": {
-    "2P03": [["Viernes", 16.75, 19.0]],
-    "2P09": [["Martes", 19.0, 21.25]]
-  },
-  "Ingles I": {
-    "2B-54": [["Martes", 11.0, 12.5], ["Jueves", 11.0, 12.5]]
-  },
-  "Tecnologia de los Materiales": {
-    "2P03": [["Miercoles", 14.5, 16.0], ["Jueves", 17.5, 19.0]],
-    "2P09": [["Martes", 21.25, 22.75], ["Jueves", 19.0, 20.5]],
-    "2P31": [["Jueves", 14.0, 16.5]]
-  },
-  "Geologia Aplicada (Elec.)": {
-    "3P02": [["Lunes", 16.0, 19.0]]
-  },
-  "Hidraulica General y Aplicada": {
-    "3P01": [["Miercoles", 17.5, 20.5]],
-    "3P02": [["Miercoles", 19.0, 23.5]]
-  },
-  "Ingles II": {
-    "3B-64": [["Martes", 16.0, 17.5], ["Jueves", 16.0, 17.5]]
-  },
-  "Instalaciones Electricas y Acústicas": {
-    "3P01": [["Lunes", 17.5, 20.5]],
-    "3P02": [["Jueves", 19.0, 22.0]]
-  },
-  "Instalaciones Termomecanicas": {
-    "3P01": [["Viernes", 16.0, 19.0]],
-    "3P02": [["Lunes", 19.0, 22.0]]
+  "Inglés I": {
+    "2B-54": [["Martes", 11.0, 12.5], ["Jueves", 11.0, 12.5], ["Cursado", "A"]],
+    "NumeroMat": 15,
+    "Año": 2,
+    "pCursar": [3],
+    "pRendir": []
   },
   "Resistencia de Materiales": {
-    "3P01": [["Martes", 15.25, 18.25]],
-    "3P02": [["Martes", 19.0, 22.0]]
+    "3P01": [["Martes", 15.25, 18.25], ["Cursado", "A"]],
+    "3P02": [["Martes", 19.0, 22.0], ["Cursado", "A"]],
+    "NumeroMat": 16,
+    "Año": 3,
+    "pCursar": [10],
+    "pRendir": [1, 2, 7, 8]
   },
-  "Tecnologia de la Construccion": {
-    "3P01": [["Jueves", 14.5, 19.0]],
-    "3P02": [["Viernes", 19.0, 23.5]]
+  "Tecnología de la Construcción": {
+    "3P01": [["Jueves", 14.5, 19.0], ["Cursado", "A"]],
+    "3P02": [["Viernes", 19.0, 23.5], ["Cursado", "A"]],
+    "NumeroMat": 18,
+    "Año": 3,
+    "pCursar": [10, 11, 12, 15],
+    "pRendir": [1, 2, 4, 5, 6, 7, 8]
   },
-  "Tecnologia del Hormigon": {
-    "3P01": [["Miercoles", 14.5, 17.5]],
-    "3P02": [["Miercoles", 17.5, 20.5]]
+  "Hidráulica General y Aplicada": {
+    "3P01": [["Miércoles", 17.5, 20.5], ["Cursado", "A"]],
+    "3P02": [["Miércoles", 19.0, 23.5], ["Cursado", "A"]],
+    "NumeroMat": 20,
+    "Año": 3,
+    "pCursar": [9, 10, 11, 13, 14],
+    "pRendir": [1, 2, 5, 7, 8]
   },
-  "Analisis Estructural I": {
-    "4P01": [["Lunes", 19.75, 23.5], ["Martes", 17.5, 21.25]],
-    "4P02": [["Miercoles", 13.75, 17.5], ["Jueves", 13.75, 17.5]]
+  "Tecnología del Hormigón": {
+    "3P01": [["Miércoles", 14.5, 17.5], ["Cursado", "A"]],
+    "3P02": [["Miércoles", 17.5, 20.5], ["Cursado", "A"]],
+    "NumeroMat": 17,
+    "Año": 3,
+    "pCursar": [12, 14, 15],
+    "pRendir": [1, 2, 6, 7]
   },
-  "Dinamica de Estructuras (Elec.)": {
-    "5P01": [["Miercoles", 14.5, 19.0]]
+  "Instalaciones Eléctricas y Acústicas": {
+    "3P01": [["Lunes", 17.5, 20.5], ["Cursado", "A"]],
+    "3P02": [["Jueves", 19.0, 22.0], ["Cursado", "A"]],
+    "NumeroMat": 22,
+    "Año": 3,
+    "pCursar": [12, 11, 13],
+    "pRendir": [1, 2, 4, 5, 6, 7]
   },
-  "Diseño Arquitectonico, Planeamiento y Urbanismo": {
-    "4P01": [["Miercoles", 19.75, 23.5]]
+  "Instalaciones Termomecánicas": {
+    "3P01": [["Viernes", 16.0, 19.0], ["Cursado", "A"]],
+    "3P02": [["Lunes", 19.0, 22.0], ["Cursado", "A"]],
+    "NumeroMat": 23,
+    "Año": 3,
+    "pCursar": [12, 11, 13],
+    "pRendir": [1, 2, 4, 5, 6, 7]
   },
-  "Hidrologia y Obras Hidraulicas": {
-    "4P01": [["Lunes", 16.75, 19.75], ["Lunes", 20.5, 23.5]],
-    "4P02": [["Martes", 13.75, 16.75], ["Martes", 14.5, 17.5]]
+  "Economía": {
+    "NumeroMat": 24,
+    "Año": 3,
+    "pCursar": [11, 14, 15],
+    "pRendir": [1, 2, 3, 4, 8]
+  },
+  "Inglés II": {
+    "3B-64": [["Martes", 16.0, 17.5], ["Jueves", 16.0, 17.5], ["Cursado", "A"]],
+    "NumeroMat": 25,
+    "Año": 3,
+    "pCursar": [15],
+    "pRendir": [3, 4]
+  },
+  "Geología Aplicada (Elec.)": {
+    "3P02": [["Lunes", 16.0, 19.0], ["Cursado", "A"]],
+    "NumeroMat": 0,
+    "Año": "E",
+    "pCursar": [],
+    "pRendir": []
+  },
+  "Diseño Arquitectónico, Planeamiento y Urbanismo": {
+    "4P01": [["Miércoles", 19.75, 23.5], ["Cursado", "A"]],
+    "NumeroMat": 28,
+    "Año": 4,
+    "pCursar": [18, 19, 22, 23, 24, 25],
+    "pRendir": [10, 11, 12, 15]
+  },
+  "Hidrología y Obras Hidráulicas": {
+    "4P01": [["Lunes", 16.75, 19.75], ["Lunes", 20.5, 23.5], ["Cursado", "A"]],
+    "4P02": [["Martes", 13.75, 16.75], ["Martes", 14.5, 17.5], ["Cursado", "A"]],
+    "NumeroMat": 31,
+    "Año": 4,
+    "pCursar": [16, 18, 19, 20, 24, 25],
+    "pRendir": [9, 10, 11, 12, 13, 14]
   },
   "Instalaciones Sanitarias y de Gas": {
-    "4P01": [["Martes", 21.25, 23.5], ["Miercoles", 17.5, 19.75]]
+    "4P01": [["Martes", 21.25, 23.5], ["Miércoles", 17.5, 19.75], ["Cursado", "A"]],
+    "NumeroMat": 27,
+    "Año": 4,
+    "pCursar": [18, 19, 20, 24],
+    "pRendir": [5, 6, 7, 8, 12]
   },
-  "Sustentabilidad del Recurso Hidrico (Elec.)": {
-    "4P01": [["Jueves", 20.5, 23.5], ["Viernes", 16.0, 19.0]]
+  "Análisis Estructural I": {
+    "4P01": [["Lunes", 19.75, 23.5], ["Martes", 17.5, 21.25], ["Cursado", "A"]],
+    "4P02": [["Miércoles", 13.75, 17.5], ["Jueves", 13.75, 17.5], ["Cursado", "A"]],
+    "NumeroMat": 29,
+    "Año": 4,
+    "pCursar": [16, 17],
+    "pRendir": [9, 10, 11, 14]
   },
-  "Vias de Comunicacion I": {
-    "4P01": [["Jueves", 17.5, 20.5], ["Viernes", 19.0, 22.0]]
+  "Geotecnia": {
+    "NumeroMat": 26,
+    "Año": 4,
+    "pCursar": [16, 17, 18, 19, 20],
+    "pRendir": [9, 10, 11, 12, 13, 14]
   },
-  "Analisis Estructural III (Elec.)": {
-    "5P01": [["Jueves", 15.25, 19.75]]
+  "Estructuras de Hormigón": {
+    "NumeroMat": 30,
+    "Año": 4,
+    "pCursar": [16, 17, 18, 19, 25],
+    "pRendir": [9, 10, 11, 12, 13, 14]
   },
-  "Caminos y Túneles de Montaña (Elec.)": {
-    "5P01": [["Miercoles", 19.0, 23.5]]
+  "Ingeniería Legal": {
+    "NumeroMat": 32,
+    "Año": 4,
+    "pCursar": [9, 11, 14, 15],
+    "pRendir": [1, 2, 3, 4, 8]
+  },
+  "Organización y Conducción de Obras": {
+    "5P01": [["Martes", 16.75, 19.0], ["Viernes", 17.5, 19.0], ["Cursado", "A"]],
+    "NumeroMat": 36,
+    "Año": 5,
+    "pCursar": [26, 27, 28, 30, 31],
+    "pRendir": [17, 18, 19, 20, 22, 23, 24, 25]
   },
   "Cimentaciones": {
-    "5P01": [["Martes", 19.0, 23.5]]
+    "5P01": [["Martes", 19.0, 23.5], ["Cursado", "A"]],
+    "NumeroMat": 34,
+    "Año": 5,
+    "pCursar": [21, 26, 29, 30, 31],
+    "pRendir": [16, 17, 18, 19, 20]
   },
-  "Gestion Ambiental y Desarrollo Sustentable": {
-    "5P01": [["Lunes", 16.0, 20.5]]
+  "Ingeniería Sanitaria": {
+    "5P01": [["Jueves", 19.75, 22.75], ["Viernes", 19.0, 20.5], ["Cursado", "A"]],
+    "NumeroMat": 35,
+    "Año": 5,
+    "pCursar": [26, 27, 31],
+    "pRendir": [17, 18, 19, 20, 25]
   },
-  "Gestion Ingenieril (Elec.)": {
-    "5P01": [["Lunes", 20.5, 23.5]]
+  "Gestión Ambiental y Desarrollo Sustentable": {
+    "5P01": [["Lunes", 16.0, 20.5], ["Cursado", "A"]],
+    "NumeroMat": 40,
+    "Año": 5,
+    "pCursar": [26, 28, 31, 32],
+    "pRendir": [20, 24, 25]
   },
-  "Ingenieria Sanitaria": {
-    "5P01": [["Jueves", 19.75, 22.75], ["Viernes", 19.0, 20.5]]
+  "Análisis Estructural III (Elec.)": {
+    "5P01": [["Jueves", 15.25, 19.75], ["Cursado", "A"]],
+    "NumeroMat": 0,
+    "Año": "E",
+    "pCursar": [],
+    "pRendir": []
   },
-  "Organizacion y Conduccion de Obras": {
-    "5P01": [["Martes", 16.75, 19.0], ["Viernes", 17.5, 19.0]]
+  "Caminos y Túneles de Montaña (Elec.)": {
+    "5P01": [["Miércoles", 19.0, 23.5], ["Cursado", "A"]],
+    "NumeroMat": 0,
+    "Año": "E",
+    "pCursar": [],
+    "pRendir": []
+  },
+  "Dinámica de Estructuras (Elec.)": {
+    "5P01": [["Miércoles", 14.5, 19.0], ["Cursado", "A"]],
+    "NumeroMat": 0,
+    "Año": "E",
+    "pCursar": [],
+    "pRendir": []
+  },
+  "Sustentabilidad del Recurso Hídrico (Elec.)": {
+    "4P01": [["Jueves", 20.5, 23.5], ["Viernes", 16.0, 19.0], ["Cursado", "A"]],
+    "NumeroMat": 0,
+    "Año": "E",
+    "pCursar": [],
+    "pRendir": []
+  },
+  "Vías de Comunicación I": {
+    "4P01": [["Jueves", 17.5, 20.5], ["Viernes", 19.0, 22.0], ["Cursado", "A"]],
+    "NumeroMat": 37,
+    "Año": 4,
+    "pCursar": [17, 18, 19],
+    "pRendir": [9, 10, 11, 12, 14, 15]
+  },
+  "Gestión Ingenieril (Elec.)": {
+    "5P01": [["Lunes", 20.5, 23.5], ["Cursado", "A"]],
+    "NumeroMat": 0,
+    "Año": "E",
+    "pCursar": [],
+    "pRendir": []
   }
 }
