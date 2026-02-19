@@ -10,14 +10,15 @@
 
 
 
-`#1)En la carpeta se encuentra lo necesario para instalar/ejecutar la app.`
-`#2)En el .RAR se encuentra la carpeta mencionada en 1).`
-`#3)En la carpeta restante se encuentran los mismos archivos que en 1) pero ademas los archivos en Python para quien quiera ver el código e incluso el código comentado.`
+`#1)En la carpeta se encuentra lo necesario para instalar/ejecutar la app.\n`
+`#2)En el .RAR se encuentra la carpeta mencionada en 1).\n`
+`#3)En la carpeta restante se encuentran los mismos archivos que en 1) pero ademas los archivos en Python para quien quiera ver el código e incluso el código comentado.\n`
 
 
-## Espero te sirva. Saludos.
+`Espero te sirva. Saludos.\n`
 
-# Atte: Fabrizio Azeglio
 
 # **IngeniAz** #
-# ***Dal caos alla cursada sistematizzata*** # 
+# ***Dal caos alla cursada sistematizzata*** # \n
+
+# Atte: Fabrizio Azeglio
