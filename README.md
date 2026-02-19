@@ -17,7 +17,7 @@
 `#3)En la carpeta restante se encuentran los mismos archivos que en 1) pero ademas los archivos en Python para quien quiera ver el código e incluso el código comentado.`
 
 
-`Espero te sirva. Saludos.\n`
+`Espero te sirva. Saludos.`
 
 
 # **IngeniAz** #
